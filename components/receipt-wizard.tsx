@@ -92,10 +92,10 @@ export function ReceiptWizard() {
   }
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Receipt Builder Wizard</CardTitle>
-        <CardDescription>
+    <Card className="border-2 border-purple-200 shadow-xl bg-gradient-to-br from-white to-purple-50/30">
+      <CardHeader className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-t-lg">
+        <CardTitle className="text-2xl">✨ Receipt Builder Wizard</CardTitle>
+        <CardDescription className="text-purple-100">
           Step {currentStep + 1} of {STEPS.length}: {STEPS[currentStep].label}
         </CardDescription>
       </CardHeader>
@@ -105,20 +105,24 @@ export function ReceiptWizard() {
             {STEPS.map((step, index) => (
               <div key={step.id} className="flex items-center flex-1">
                 <div
-                  className={`flex items-center justify-center w-10 h-10 rounded-full border-2 ${
+                  className={`flex items-center justify-center w-12 h-12 rounded-full border-2 font-bold transition-all ${
                     index === currentStep
-                      ? "bg-primary text-primary-foreground border-primary"
+                      ? "bg-gradient-to-br from-purple-600 to-pink-600 text-white border-purple-500 shadow-lg shadow-purple-500/50 scale-110"
                       : index < currentStep
-                      ? "bg-primary/10 text-primary border-primary"
-                      : "bg-background text-muted-foreground border-muted"
+                      ? "bg-gradient-to-br from-green-500 to-emerald-500 text-white border-green-400 shadow-md"
+                      : "bg-gray-100 text-gray-400 border-gray-300"
                   }`}
                 >
-                  {index + 1}
+                  {index < currentStep ? "✓" : index + 1}
                 </div>
                 {index < STEPS.length - 1 && (
                   <div
-                    className={`flex-1 h-1 mx-2 ${
-                      index < currentStep ? "bg-primary" : "bg-muted"
+                    className={`flex-1 h-2 mx-2 rounded-full transition-all ${
+                      index < currentStep 
+                        ? "bg-gradient-to-r from-green-500 to-emerald-500" 
+                        : index === currentStep - 1
+                        ? "bg-gradient-to-r from-green-500 to-purple-500"
+                        : "bg-gray-200"
                     }`}
                   />
                 )}
@@ -149,12 +153,17 @@ export function ReceiptWizard() {
             variant="outline"
             onClick={handleBack}
             disabled={currentStep === 0}
+            className="bg-gradient-to-r from-gray-400 to-gray-500 hover:from-gray-500 hover:to-gray-600 text-white border-0 disabled:opacity-50"
           >
-            Back
+            ← Back
           </Button>
           {currentStep < STEPS.length - 1 && (
-            <Button type="button" onClick={handleNext}>
-              Next
+            <Button 
+              type="button" 
+              onClick={handleNext}
+              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-lg shadow-purple-500/50"
+            >
+              Next →
             </Button>
           )}
         </div>

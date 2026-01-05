@@ -90,9 +90,9 @@ export function ReviewStep({
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-2 gap-4">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Pharmacy Costs</CardTitle>
+        <Card className="border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-white">
+          <CardHeader className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-t-lg">
+            <CardTitle className="text-lg">💊 Pharmacy Costs</CardTitle>
           </CardHeader>
           <CardContent>
             {breakdown.pharmacy.length === 0 ? (
@@ -119,9 +119,9 @@ export function ReviewStep({
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Lab Costs</CardTitle>
+        <Card className="border-2 border-green-200 bg-gradient-to-br from-green-50 to-white">
+          <CardHeader className="bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-t-lg">
+            <CardTitle className="text-lg">🔬 Lab Costs</CardTitle>
           </CardHeader>
           <CardContent>
             {breakdown.lab.length === 0 ? (
@@ -148,9 +148,9 @@ export function ReviewStep({
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Clinical Provider Services</CardTitle>
+        <Card className="border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-white">
+          <CardHeader className="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-t-lg">
+            <CardTitle className="text-lg">👨‍⚕️ Clinical Provider Services</CardTitle>
           </CardHeader>
           <CardContent>
             {breakdown.clinical.length === 0 ? (
@@ -177,9 +177,9 @@ export function ReviewStep({
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Operational Costs</CardTitle>
+        <Card className="border-2 border-orange-200 bg-gradient-to-br from-orange-50 to-white">
+          <CardHeader className="bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-t-lg">
+            <CardTitle className="text-lg">📊 Operational Costs</CardTitle>
           </CardHeader>
           <CardContent>
             {breakdown.operational.length === 0 ? (
@@ -207,9 +207,9 @@ export function ReviewStep({
         </Card>
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-lg">Core Membership Fee</CardTitle>
+      <Card className="border-2 border-yellow-200 bg-gradient-to-br from-yellow-50 to-white">
+        <CardHeader className="bg-gradient-to-r from-yellow-500 to-amber-500 text-white rounded-t-lg">
+          <CardTitle className="text-lg">⭐ Core Membership Fee</CardTitle>
         </CardHeader>
         <CardContent>
           {breakdown.core.length === 0 ? (
@@ -253,7 +253,7 @@ export function ReviewStep({
         </Card>
       )}
 
-      <Card className="bg-muted">
+      <Card className="bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100 border-2 border-purple-300 shadow-lg">
         <CardContent className="pt-6">
           <div className="flex justify-between items-center">
             <span className="text-lg font-semibold">Calculated Total:</span>
