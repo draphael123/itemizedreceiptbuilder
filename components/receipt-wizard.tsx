@@ -92,11 +92,13 @@ export function ReceiptWizard() {
   }
 
   return (
-    <Card className="border-2 border-purple-200 shadow-xl bg-gradient-to-br from-white to-purple-50/30">
-      <CardHeader className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-t-lg">
-        <CardTitle className="text-2xl">✨ Receipt Builder Wizard</CardTitle>
-        <CardDescription className="text-purple-100">
-          Step {currentStep + 1} of {STEPS.length}: {STEPS[currentStep].label}
+    <Card className="border-4 border-transparent bg-clip-padding shadow-2xl bg-gradient-to-br from-white to-purple-50/30 rounded-2xl" style={{ backgroundImage: 'linear-gradient(white, white), linear-gradient(135deg, #a855f7, #ec4899, #3b82f6)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}>
+      <CardHeader className="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-white rounded-t-xl p-6 shadow-lg">
+        <CardTitle className="text-3xl font-bold flex items-center gap-2">
+          <span className="animate-bounce">✨</span> Receipt Builder Wizard
+        </CardTitle>
+        <CardDescription className="text-purple-100 text-lg mt-2">
+          Step {currentStep + 1} of {STEPS.length}: <span className="font-semibold">{STEPS[currentStep].label}</span>
         </CardDescription>
       </CardHeader>
       <CardContent>

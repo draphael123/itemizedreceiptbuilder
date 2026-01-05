@@ -11,90 +11,108 @@ export default async function Home() {
   }
 
   return (
-    <div className="container mx-auto py-10">
-      <div className="max-w-6xl mx-auto">
+    <div className="container mx-auto py-10 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style={{ animationDelay: '4s' }}></div>
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
-            Receipt Builder
-          </h1>
-          <p className="text-lg text-muted-foreground mb-6">
+          <div className="inline-block mb-4">
+            <h1 className="text-6xl font-bold mb-2 bg-gradient-to-r from-purple-600 via-pink-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-pulse-slow bg-[length:200%_auto]">
+              🧾 Receipt Builder
+            </h1>
+            <div className="h-1 w-full bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full"></div>
+          </div>
+          <p className="text-xl text-gray-700 dark:text-gray-300 font-medium">
             Create itemized receipts for patient plans with guided workflow
           </p>
+          <div className="flex justify-center gap-2 mt-4">
+            <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm font-semibold">⚡ Fast</span>
+            <span className="px-3 py-1 bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-300 rounded-full text-sm font-semibold">✅ Accurate</span>
+            <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm font-semibold">🔒 Secure</span>
+          </div>
         </div>
 
         {/* Benefits Section */}
-        <div className="mb-12 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 rounded-xl p-8 border-2 border-blue-200 shadow-lg">
-          <h2 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            ✨ Why Use Receipt Builder?
-          </h2>
+        <div className="mb-12 bg-gradient-to-br from-blue-50 via-purple-50 via-pink-50 to-blue-50 dark:from-gray-900 dark:via-gray-800 rounded-2xl p-8 border-4 border-transparent bg-clip-padding" style={{ backgroundImage: 'linear-gradient(white, white), linear-gradient(45deg, #a855f7, #ec4899, #3b82f6, #06b6d4)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}>
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-bold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-pulse-slow">
+              ✨ Why Use Receipt Builder?
+            </h2>
+            <div className="h-1 w-32 mx-auto bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full"></div>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-blue-500">
-              <div className="text-4xl mb-3">⚡</div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Save Time</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-blue-500 hover:scale-105 hover:-translate-y-1 group">
+              <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">⚡</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-blue-600 transition-colors">Save Time</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
                 Automate calculations and PDF generation. What used to take 30+ minutes now takes just 5 minutes per receipt.
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-green-500">
-              <div className="text-4xl mb-3">🎯</div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Ensure Accuracy</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-green-500 hover:scale-105 hover:-translate-y-1 group">
+              <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">🎯</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-green-600 transition-colors">Ensure Accuracy</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
                 Eliminate manual calculation errors. The system automatically calculates totals and validates that everything matches.
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-purple-500">
-              <div className="text-4xl mb-3">✅</div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Stay Compliant</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-purple-500 hover:scale-105 hover:-translate-y-1 group">
+              <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">✅</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-purple-600 transition-colors">Stay Compliant</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
                 Automatic state-specific rule application ensures your receipts meet regulatory requirements (e.g., NY lab cost rules).
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-pink-500">
-              <div className="text-4xl mb-3">📊</div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Professional Output</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-pink-500 hover:scale-105 hover:-translate-y-1 group">
+              <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">📊</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-pink-600 transition-colors">Professional Output</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
                 Generate polished, professional PDF receipts with consistent formatting and complete itemization every time.
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-orange-500">
-              <div className="text-4xl mb-3">🔄</div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Streamlined Workflow</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-orange-500 hover:scale-105 hover:-translate-y-1 group">
+              <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">🔄</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-orange-600 transition-colors">Streamlined Workflow</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
                 Guided 5-step wizard ensures you never miss information. Clear progress indicators keep you on track.
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-cyan-500">
-              <div className="text-4xl mb-3">💾</div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Centralized Storage</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-cyan-500 hover:scale-105 hover:-translate-y-1 group">
+              <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">💾</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-cyan-600 transition-colors">Centralized Storage</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
                 All receipts stored securely in one place. Easy search, download, and task management for better organization.
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-yellow-500">
-              <div className="text-4xl mb-3">🧮</div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Smart Calculations</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-yellow-500 hover:scale-105 hover:-translate-y-1 group">
+              <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">🧮</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-yellow-600 transition-colors">Smart Calculations</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
                 Automatic cost breakdown by category. Handles adjustments when needed and ensures totals always match.
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-red-500">
-              <div className="text-4xl mb-3">📋</div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Task Integration</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-red-500 hover:scale-105 hover:-translate-y-1 group">
+              <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">📋</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-red-600 transition-colors">Task Integration</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
                 Link receipts to tasks, track completion status, and manage your workflow all in one place.
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-indigo-500">
-              <div className="text-4xl mb-3">⚙️</div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Flexible Pricing</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-indigo-500 hover:scale-105 hover:-translate-y-1 group">
+              <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">⚙️</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-indigo-600 transition-colors">Flexible Pricing</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
                 Easy pricing rule management. Import from spreadsheets or create custom rules for any plan combination.
               </p>
@@ -105,37 +123,41 @@ export default async function Home() {
         {/* Quick Actions */}
         <div className="grid gap-6 md:grid-cols-2 mb-12">
           <Link href="/receipts/new">
-            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 p-[2px] transition-all hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50">
-              <div className="relative h-32 rounded-xl bg-white dark:bg-gray-900 flex items-center justify-center">
-                <Button size="lg" className="w-full h-full text-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0">
-                  ✨ Create New Receipt
+            <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-500 via-pink-500 to-rose-500 p-[3px] transition-all hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50 animate-pulse-slow">
+              <div className="relative h-36 rounded-2xl bg-gradient-to-br from-white to-purple-50 dark:from-gray-900 dark:to-gray-800 flex flex-col items-center justify-center p-4">
+                <div className="text-4xl mb-2 group-hover:scale-110 transition-transform">✨</div>
+                <Button size="lg" className="w-full text-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-lg">
+                  Create New Receipt
                 </Button>
               </div>
             </div>
           </Link>
           <Link href="/receipts">
-            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 p-[2px] transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50">
-              <div className="relative h-32 rounded-xl bg-white dark:bg-gray-900 flex items-center justify-center">
-                <Button size="lg" variant="outline" className="w-full h-full text-lg bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-0">
-                  📋 View All Receipts
+            <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-500 via-cyan-500 to-teal-500 p-[3px] transition-all hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50">
+              <div className="relative h-36 rounded-2xl bg-gradient-to-br from-white to-blue-50 dark:from-gray-900 dark:to-gray-800 flex flex-col items-center justify-center p-4">
+                <div className="text-4xl mb-2 group-hover:scale-110 transition-transform">📋</div>
+                <Button size="lg" variant="outline" className="w-full text-lg bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-0 shadow-lg">
+                  View All Receipts
                 </Button>
               </div>
             </div>
           </Link>
           <Link href="/admin/pricing">
-            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 p-[2px] transition-all hover:scale-105 hover:shadow-lg hover:shadow-green-500/50">
-              <div className="relative h-32 rounded-xl bg-white dark:bg-gray-900 flex items-center justify-center">
-                <Button size="lg" variant="outline" className="w-full h-full text-lg bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white border-0">
-                  ⚙️ Manage Pricing Rules
+            <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500 p-[3px] transition-all hover:scale-105 hover:shadow-2xl hover:shadow-green-500/50">
+              <div className="relative h-36 rounded-2xl bg-gradient-to-br from-white to-green-50 dark:from-gray-900 dark:to-gray-800 flex flex-col items-center justify-center p-4">
+                <div className="text-4xl mb-2 group-hover:scale-110 transition-transform">⚙️</div>
+                <Button size="lg" variant="outline" className="w-full text-lg bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white border-0 shadow-lg">
+                  Manage Pricing Rules
                 </Button>
               </div>
             </div>
           </Link>
           <Link href="/tasks">
-            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-orange-500 to-red-500 p-[2px] transition-all hover:scale-105 hover:shadow-lg hover:shadow-orange-500/50">
-              <div className="relative h-32 rounded-xl bg-white dark:bg-gray-900 flex items-center justify-center">
-                <Button size="lg" variant="outline" className="w-full h-full text-lg bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white border-0">
-                  ✅ View Tasks
+            <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-500 via-red-500 to-rose-500 p-[3px] transition-all hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/50">
+              <div className="relative h-36 rounded-2xl bg-gradient-to-br from-white to-orange-50 dark:from-gray-900 dark:to-gray-800 flex flex-col items-center justify-center p-4">
+                <div className="text-4xl mb-2 group-hover:scale-110 transition-transform">✅</div>
+                <Button size="lg" variant="outline" className="w-full text-lg bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white border-0 shadow-lg">
+                  View Tasks
                 </Button>
               </div>
             </div>
@@ -143,16 +165,19 @@ export default async function Home() {
         </div>
 
         {/* User Guide */}
-        <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 dark:from-gray-900 dark:via-gray-800 rounded-xl p-8 border-2 border-purple-200 shadow-lg">
-          <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-            📖 User Guide
-          </h2>
+        <div className="bg-gradient-to-br from-purple-50 via-pink-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 rounded-2xl p-8 border-4 border-transparent bg-clip-padding shadow-2xl" style={{ backgroundImage: 'linear-gradient(white, white), linear-gradient(135deg, #a855f7, #ec4899, #3b82f6)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}>
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-bold mb-3 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
+              📖 User Guide
+            </h2>
+            <div className="h-1 w-32 mx-auto bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full"></div>
+          </div>
           
           <div className="space-y-6">
             {/* Step 1 */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border-l-4 border-purple-500 shadow-md">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border-l-4 border-purple-500 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center font-bold text-lg">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
                   1
                 </div>
                 <div className="flex-1">
@@ -171,9 +196,9 @@ export default async function Home() {
             </div>
 
             {/* Step 2 */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border-l-4 border-blue-500 shadow-md">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border-l-4 border-blue-500 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white flex items-center justify-center font-bold text-lg">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
                   2
                 </div>
                 <div className="flex-1">
@@ -192,9 +217,9 @@ export default async function Home() {
             </div>
 
             {/* Step 3 */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border-l-4 border-green-500 shadow-md">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border-l-4 border-green-500 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center font-bold text-lg">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
                   3
                 </div>
                 <div className="flex-1">
@@ -231,9 +256,9 @@ export default async function Home() {
             </div>
 
             {/* Step 4 */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border-l-4 border-orange-500 shadow-md">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border-l-4 border-orange-500 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-orange-600 to-red-600 text-white flex items-center justify-center font-bold text-lg">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-orange-600 to-red-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
                   4
                 </div>
                 <div className="flex-1">
@@ -258,9 +283,9 @@ export default async function Home() {
             </div>
 
             {/* Step 5 */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border-l-4 border-pink-500 shadow-md">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border-l-4 border-pink-500 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-pink-600 to-rose-600 text-white flex items-center justify-center font-bold text-lg">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-pink-600 to-rose-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
                   5
                 </div>
                 <div className="flex-1">

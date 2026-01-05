@@ -8,10 +8,10 @@ export function Nav() {
   const { data: session } = useSession()
 
   return (
-    <nav className="border-b bg-gradient-to-r from-purple-50 via-pink-50 to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      <div className="container mx-auto px-4 py-4">
+    <nav className="border-b-2 border-purple-200 bg-gradient-to-r from-purple-100 via-pink-100 via-blue-100 to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 shadow-md">
+      <div className="container mx-auto px-4 py-5">
         <div className="flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent hover:scale-105 transition-transform">
+          <Link href="/" className="text-3xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 via-blue-600 to-purple-600 bg-clip-text text-transparent hover:scale-110 transition-transform bg-[length:200%_auto] animate-pulse-slow">
             🧾 Receipt Builder
           </Link>
           {session && (
