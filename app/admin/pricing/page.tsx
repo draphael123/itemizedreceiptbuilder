@@ -4,6 +4,8 @@ import { requireAdmin } from "@/lib/permissions"
 import { prisma } from "@/lib/prisma"
 import { PricingRulesManager } from "@/components/pricing-rules-manager"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export default async function AdminPricingPage() {
   const session = await auth()
@@ -26,17 +28,15 @@ export default async function AdminPricingPage() {
             </CardHeader>
             <CardContent className="pt-6">
               <p className="mb-4">
-                You need admin access to manage pricing rules. To become an admin:
+                You need admin access to manage pricing rules.
               </p>
-              <ol className="list-decimal list-inside space-y-2 mb-4">
-                <li>Connect to your database (Neon/Supabase dashboard)</li>
-                <li>Run this SQL query:
-                  <pre className="bg-gray-100 dark:bg-gray-800 p-2 rounded mt-2 text-sm">
-                    UPDATE User SET role = 'admin' WHERE email = '{session.user.email}';
-                  </pre>
-                </li>
-                <li>Sign out and sign back in</li>
-              </ol>
+              <div className="mb-4">
+                <Link href="/admin/setup">
+                  <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white">
+                    ✨ Make Me Admin
+                  </Button>
+                </Link>
+              </div>
               <p className="text-sm text-muted-foreground">
                 Or use the command: <code>npm run make-admin {session.user.email}</code>
               </p>
