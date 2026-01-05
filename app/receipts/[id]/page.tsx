@@ -35,6 +35,7 @@ export default async function ReceiptDetailPage({
     redirect("/receipts")
   }
 
+  // Return receipt detail page with print optimizer
   return (
     <div>
       <PrintOptimizer />
