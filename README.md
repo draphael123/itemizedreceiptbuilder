@@ -303,3 +303,5 @@ This project is proprietary software.
 
 For issues or questions, please contact the development team.
 
+#   F o r c e   V e r c e l   r e b u i l d  
+ 
