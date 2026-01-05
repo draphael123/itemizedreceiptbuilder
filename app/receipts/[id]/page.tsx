@@ -36,7 +36,7 @@ export default async function ReceiptDetailPage({
   }
 
   return (
-    <>
+    <div>
       <PrintOptimizer />
       <div className="container mx-auto py-10">
         <div className="max-w-6xl mx-auto">
@@ -77,7 +77,7 @@ export default async function ReceiptDetailPage({
           <TaskManager receiptId={receipt.id} tasks={receipt.tasks} />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
