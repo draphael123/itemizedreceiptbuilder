@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ReceiptDetails } from "@/components/receipt-details"
 import { TaskManager } from "@/components/task-manager"
+import { PrintOptimizer } from "@/components/print-optimizer"
 
 export default async function ReceiptDetailPage({
   params,
@@ -35,8 +36,10 @@ export default async function ReceiptDetailPage({
   }
 
   return (
-    <div className="container mx-auto py-10">
-      <div className="max-w-6xl mx-auto">
+    <>
+      <PrintOptimizer />
+      <div className="container mx-auto py-10">
+        <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-6">
           <div>
             <Link href="/receipts">
@@ -74,7 +77,7 @@ export default async function ReceiptDetailPage({
           <TaskManager receiptId={receipt.id} tasks={receipt.tasks} />
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

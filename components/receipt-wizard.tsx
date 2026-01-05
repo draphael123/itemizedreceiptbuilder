@@ -12,6 +12,7 @@ import { PlanMedsStep } from "./receipt-wizard/plan-meds-step"
 import { ProviderStep } from "./receipt-wizard/provider-step"
 import { ReviewStep } from "./receipt-wizard/review-step"
 import { GenerateStep } from "./receipt-wizard/generate-step"
+import { AdvancedValidation } from "@/components/advanced-validation"
 import { type CostBreakdown } from "@/lib/pricing-calculator"
 import { calculateBreakdownAction } from "@/app/actions/calculate"
 
