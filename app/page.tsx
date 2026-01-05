@@ -146,7 +146,7 @@ export default async function Home() {
         </div>
 
         {/* Quick Actions */}
-        <div className="grid gap-6 md:grid-cols-2 mb-12">
+        <div className="grid gap-6 md:grid-cols-3 mb-12">
           <Link href="/receipts/new">
             <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-500 via-pink-500 to-rose-500 p-[3px] transition-all hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50 animate-pulse-slow">
               <div className="relative h-36 rounded-2xl bg-gradient-to-br from-white to-purple-50 dark:from-gray-900 dark:to-gray-800 flex flex-col items-center justify-center p-4">
@@ -163,6 +163,16 @@ export default async function Home() {
                 <div className="text-4xl mb-2 group-hover:scale-110 transition-transform">📋</div>
                 <Button size="lg" variant="outline" className="w-full text-lg bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-0 shadow-lg">
                   View All Receipts
+                </Button>
+              </div>
+            </div>
+          </Link>
+          <Link href="/download">
+            <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-[3px] transition-all hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/50">
+              <div className="relative h-36 rounded-2xl bg-gradient-to-br from-white to-indigo-50 dark:from-gray-900 dark:to-gray-800 flex flex-col items-center justify-center p-4">
+                <div className="text-4xl mb-2 group-hover:scale-110 transition-transform">💻</div>
+                <Button size="lg" variant="outline" className="w-full text-lg bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white border-0 shadow-lg">
+                  Download Desktop App
                 </Button>
               </div>
             </div>
@@ -436,6 +446,55 @@ export default async function Home() {
                     </p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Download Desktop App Section */}
+        <div className="mt-16 mb-8">
+          <div className="bg-gradient-to-br from-indigo-600 via-purple-600 via-pink-600 to-orange-600 rounded-3xl p-10 shadow-2xl relative overflow-hidden">
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            </div>
+            
+            <div className="relative z-10 text-center">
+              <div className="text-6xl mb-4">💻</div>
+              <h2 className="text-4xl font-bold text-white mb-4 drop-shadow-lg">
+                Download Desktop App
+              </h2>
+              <p className="text-xl text-white/90 mb-6 max-w-2xl mx-auto">
+                Get the full Receipt Builder experience on your desktop! Works offline, faster performance, and all the same features.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <a href="/downloads/ReceiptBuilder-Setup.exe" download className="group">
+                  <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 shadow-lg px-8 py-6 text-lg">
+                    <span className="flex items-center gap-2">
+                      <span className="text-2xl">🪟</span>
+                      Download for Windows
+                    </span>
+                  </Button>
+                </a>
+                <a href="/downloads/ReceiptBuilder.dmg" download className="group">
+                  <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 shadow-lg px-8 py-6 text-lg">
+                    <span className="flex items-center gap-2">
+                      <span className="text-2xl">🍎</span>
+                      Download for Mac
+                    </span>
+                  </Button>
+                </a>
+                <a href="/downloads/ReceiptBuilder.AppImage" download className="group">
+                  <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 shadow-lg px-8 py-6 text-lg">
+                    <span className="flex items-center gap-2">
+                      <span className="text-2xl">🐧</span>
+                      Download for Linux
+                    </span>
+                  </Button>
+                </a>
+              </div>
+              <div className="mt-6 text-white/80 text-sm">
+                <p>✨ All features included • Works offline • Auto-updates available</p>
               </div>
             </div>
           </div>

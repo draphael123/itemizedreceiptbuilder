@@ -2,6 +2,7 @@
   "name": "receipt-builder",
   "version": "0.1.0",
   "private": true,
+  "main": "electron/main.js",
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
@@ -16,7 +17,13 @@
     "make-admin": "tsx scripts/make-admin.ts",
     "setup": "tsx scripts/setup.ts",
     "switch:postgres": "tsx scripts/switch-to-postgres.ts",
-    "switch:sqlite": "tsx scripts/switch-to-sqlite.ts"
+    "switch:sqlite": "tsx scripts/switch-to-sqlite.ts",
+    "electron": "electron .",
+    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron:build": "npm run build && electron-builder",
+    "electron:build:win": "npm run build && electron-builder --win",
+    "electron:build:mac": "npm run build && electron-builder --mac",
+    "electron:build:linux": "npm run build && electron-builder --linux"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.4.0",
@@ -53,6 +60,9 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "concurrently": "^8.2.2",
+    "electron": "^28.3.3",
+    "electron-builder": "^24.13.3",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "postcss": "^8",
@@ -60,6 +70,44 @@
     "tailwindcss": "^3.4.1",
     "tsx": "^4.7.0",
     "typescript": "^5",
+    "wait-on": "^7.2.0",
     "xlsx": "^0.18.5"
+  },
+  "build": {
+    "appId": "com.receiptbuilder.app",
+    "productName": "Receipt Builder",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      ".next/standalone/**/*",
+      ".next/static/**/*",
+      "public/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "public/icon.ico"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "public/icon.icns"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "icon": "public/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   }
 }
