@@ -109,21 +109,45 @@ npm run dev
 
 ## Database Setup
 
-### Using Neon (Recommended)
+### Using Vercel Postgres (Recommended - No External Services!)
 
+Vercel Postgres is built into Vercel and requires no external accounts.
+
+1. **Create Database in Vercel**
+   - Go to Vercel Dashboard → Your Project → **Storage** tab
+   - Click **Create Database** → Select **Postgres**
+   - Vercel automatically creates `POSTGRES_URL` environment variable
+
+2. **Set DATABASE_URL**
+   - In Vercel Dashboard → **Settings** → **Environment Variables**
+   - Add: `DATABASE_URL` = `$POSTGRES_URL`
+   - Or pull locally: `vercel env pull .env.local`
+
+3. **Run Migrations**
+   ```bash
+   vercel env pull .env.local
+   npm run db:push
+   npm run db:seed
+   ```
+
+See `scripts/setup-vercel-postgres.md` for detailed instructions.
+
+### Alternative: External Database Services
+
+If you prefer external services:
+
+**Neon:**
 1. Sign up at [Neon](https://neon.tech/)
 2. Create a new project
 3. Copy the connection string to `DATABASE_URL` in your `.env` file
 
-### Using Supabase
-
+**Supabase:**
 1. Sign up at [Supabase](https://supabase.com/)
 2. Create a new project
 3. Go to Settings → Database
 4. Copy the connection string to `DATABASE_URL` in your `.env` file
 
-### Using Local PostgreSQL
-
+**Local PostgreSQL:**
 1. Install PostgreSQL locally
 2. Create a new database:
 ```bash

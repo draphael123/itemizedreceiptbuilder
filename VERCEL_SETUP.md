@@ -1,8 +1,30 @@
 # Vercel Deployment Setup Guide
 
-## Fixing the DATABASE_URL Error
+## Using Vercel Postgres (Recommended - No External Services!)
 
-The error "Environment variable not found: DATABASE_URL" occurs because Vercel needs environment variables configured.
+Vercel Postgres is built into Vercel and requires no external accounts. See `scripts/setup-vercel-postgres.md` for detailed instructions.
+
+### Quick Setup:
+
+1. **Create Vercel Postgres Database**
+   - Go to Vercel Dashboard → Your Project → **Storage** tab
+   - Click **Create Database** → Select **Postgres**
+   - Vercel automatically creates `POSTGRES_URL` environment variable
+
+2. **Set DATABASE_URL**
+   - Go to **Settings** → **Environment Variables**
+   - Add: `DATABASE_URL` = `$POSTGRES_URL` (references the Postgres URL)
+   - Or use `POSTGRES_URL` directly in your code
+
+3. **Run Migrations**
+   ```bash
+   vercel env pull .env.local
+   npm run db:push
+   ```
+
+## Alternative: External Database (If Needed)
+
+If you prefer an external database service:
 
 ### Step 1: Set Up Database URL in Vercel
 
