@@ -2,6 +2,8 @@ import { redirect } from "next/navigation"
 import { auth } from "@/lib/auth"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { ContactForm } from "@/components/contact-form"
+import { SuggestionsForm } from "@/components/suggestions-form"
 
 export default async function Home() {
   const session = await auth()
@@ -438,6 +440,24 @@ export default async function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Contact & Suggestions Section */}
+        <div className="mt-16 mb-8">
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-bold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent">
+              📬 Get in Touch
+            </h2>
+            <div className="h-1 w-32 mx-auto bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full"></div>
+            <p className="text-gray-700 dark:text-gray-300 mt-4">
+              Have questions, feedback, or suggestions? We&apos;d love to hear from you!
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <ContactForm />
+            <SuggestionsForm />
           </div>
         </div>
       </div>

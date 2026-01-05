@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useSession, signOut } from "next-auth/react"
+import { useSession, signOut, signIn } from "next-auth/react"
 import { Button } from "@/components/ui/button"
 import { DarkModeToggle } from "@/components/dark-mode-toggle"
 
@@ -15,7 +15,7 @@ export function Nav() {
           <Link href="/" className="text-3xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 via-blue-600 to-purple-600 bg-clip-text text-transparent hover:scale-110 transition-transform bg-[length:200%_auto] animate-pulse-slow">
             🧾 Receipt Builder
           </Link>
-              {session && (
+              {session ? (
                 <div className="flex items-center gap-4">
                   <Link href="/receipts">
                     <Button variant="ghost" size="sm" className="text-gray-700 dark:text-gray-300">
@@ -38,6 +38,17 @@ export function Nav() {
                     className="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white border-0"
                   >
                     Sign Out
+                  </Button>
+                </div>
+              ) : (
+                <div className="flex items-center gap-4">
+                  <DarkModeToggle />
+                  <Button
+                    onClick={() => signIn("google", { callbackUrl: "/" })}
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg"
+                    size="sm"
+                  >
+                    🔐 Sign In
                   </Button>
                 </div>
               )}
