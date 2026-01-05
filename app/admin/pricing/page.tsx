@@ -1,5 +1,6 @@
 import { auth } from "@/lib/auth"
 import { redirect } from "next/navigation"
+import { requireAdmin } from "@/lib/permissions"
 import { prisma } from "@/lib/prisma"
 import { PricingRulesManager } from "@/components/pricing-rules-manager"
 
