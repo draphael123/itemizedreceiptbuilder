@@ -10,6 +10,13 @@ export default async function AdminPricingPage() {
     redirect("/api/auth/signin")
   }
 
+  // Check admin access
+  try {
+    await requireAdmin()
+  } catch {
+    redirect("/")
+  }
+
   const rules = await prisma.pricingRule.findMany({
     orderBy: [
       { planPrice: "asc" },
