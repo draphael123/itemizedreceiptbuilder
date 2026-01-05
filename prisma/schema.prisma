@@ -90,7 +90,7 @@ model Receipt {
   planWeeks         Int
   medications       String   // JSON string of medication keys array
   chargeAmount      Float    // Total charge amount
-  breakdown         String   // JSON string of breakdown (SQLite doesn't support Json type)
+  breakdown         String   // JSON string of breakdown
   adjustmentAmount  Float?   // Adjustment if needed
   adjustmentReason  String?  // Reason for adjustment
   providerName      String?
