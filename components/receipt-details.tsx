@@ -71,7 +71,7 @@ export function ReceiptDetails({ receipt }: ReceiptDetailsProps) {
               <span className="text-muted-foreground">Medications:</span>{" "}
               {typeof receipt.medications === 'string' 
                 ? JSON.parse(receipt.medications).join(", ")
-                : receipt.medications.join(", ")}
+                : (Array.isArray(receipt.medications) ? receipt.medications.join(", ") : String(receipt.medications))}
             </p>
           </div>
         </div>
