@@ -69,9 +69,12 @@ export function ReceiptDetails({ receipt }: ReceiptDetailsProps) {
             </p>
             <p>
               <span className="text-muted-foreground">Medications:</span>{" "}
-              {typeof receipt.medications === 'string' 
-                ? JSON.parse(receipt.medications).join(", ")
-                : (Array.isArray(receipt.medications) ? receipt.medications.join(", ") : String(receipt.medications))}
+              {(() => {
+                const meds = typeof receipt.medications === 'string' 
+                  ? JSON.parse(receipt.medications)
+                  : receipt.medications;
+                return Array.isArray(meds) ? meds.join(", ") : String(meds);
+              })()}
             </p>
           </div>
         </div>
