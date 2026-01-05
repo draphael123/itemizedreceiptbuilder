@@ -61,6 +61,12 @@ if (!/NEXTAUTH_URL\s*=/i.test(envContent)) {
   console.log('✅ Added NEXTAUTH_URL')
 }
 
+// Add dev mode option
+if (!/ENABLE_DEV_AUTH\s*=/i.test(envContent)) {
+  envContent += `\n# Development Mode (bypasses Google OAuth - set to "true" to enable)\nENABLE_DEV_AUTH="false"\n`
+  console.log('✅ Added ENABLE_DEV_AUTH option')
+}
+
 writeFileSync(envPathToUse, envContent.trim() + '\n')
 
 console.log('\n✨ Configuration updated!')

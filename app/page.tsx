@@ -5,8 +5,16 @@ import { Button } from "@/components/ui/button"
 import { ContactForm } from "@/components/contact-form"
 import { SuggestionsForm } from "@/components/suggestions-form"
 
+import { getDevSession } from "@/lib/auth-dev"
+
 export default async function Home() {
-  const session = await auth()
+  // Check dev mode first
+  let session = null
+  if (process.env.ENABLE_DEV_AUTH === "true") {
+    session = await getDevSession()
+  } else {
+    session = await auth()
+  }
 
   if (!session) {
     redirect("/signin")

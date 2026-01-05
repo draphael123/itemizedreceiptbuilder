@@ -2,6 +2,7 @@ import NextAuth from "next-auth"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { prisma } from "@/lib/prisma"
 import GoogleProvider from "next-auth/providers/google"
+import { getDevSession } from "@/lib/auth-dev"
 
 // Validate required environment variables
 const requiredEnvVars = {
@@ -45,15 +46,25 @@ if (!googleClientId || !googleClientSecret) {
   )
 }
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
+// Create NextAuth config conditionally
+const nextAuthConfig: any = {
   adapter: PrismaAdapter(prisma) as any,
-  secret: authSecret,
-  providers: [
+  secret: authSecret || "dev-secret-key",
+  providers: [],
+}
+
+// Only add Google provider if not in dev mode
+if (!isDevAuthEnabled) {
+  nextAuthConfig.providers.push(
     GoogleProvider({
-      clientId: googleClientId,
-      clientSecret: googleClientSecret,
-    }),
-  ],
+      clientId: googleClientId!,
+      clientSecret: googleClientSecret!,
+    })
+  )
+}
+
+export const { handlers, auth, signIn, signOut } = NextAuth({
+  ...nextAuthConfig,
   callbacks: {
     async session({ session, token, user }: any) {
       if (session.user) {
