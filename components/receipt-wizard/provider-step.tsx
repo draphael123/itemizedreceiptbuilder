@@ -14,7 +14,7 @@ export function ProviderStep({ form }: ProviderStepProps) {
   return (
     <div className="space-y-4">
       <div>
-        <Label htmlFor="providerName">Provider Name *</Label>
+        <Label htmlFor="providerName">Provider Name (optional)</Label>
         <Input
           id="providerName"
           {...form.register("providerName")}
@@ -28,7 +28,7 @@ export function ProviderStep({ form }: ProviderStepProps) {
       </div>
 
       <div>
-        <Label htmlFor="providerNPI">Provider NPI *</Label>
+        <Label htmlFor="providerNPI">Provider NPI (optional)</Label>
         <Input
           id="providerNPI"
           {...form.register("providerNPI")}
@@ -42,7 +42,7 @@ export function ProviderStep({ form }: ProviderStepProps) {
       </div>
 
       <div>
-        <Label htmlFor="diagnosisCode">Diagnosis Code (ICD-10) *</Label>
+        <Label htmlFor="diagnosisCode">Diagnosis Code (ICD-10) (optional)</Label>
         <Input
           id="diagnosisCode"
           {...form.register("diagnosisCode")}
@@ -56,7 +56,7 @@ export function ProviderStep({ form }: ProviderStepProps) {
       </div>
 
       <div>
-        <Label htmlFor="procedureCode">Procedure Code (CPT) *</Label>
+        <Label htmlFor="procedureCode">Procedure Code (CPT) (optional)</Label>
         <Input
           id="procedureCode"
           {...form.register("procedureCode")}

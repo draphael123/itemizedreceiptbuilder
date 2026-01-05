@@ -52,10 +52,10 @@ export async function createReceipt(data: ReceiptFormData & { breakdown: CostBre
         breakdown: JSON.stringify(data.breakdown),
         adjustmentAmount: data.adjustmentAmount || null,
         adjustmentReason: data.adjustmentReason || null,
-        providerName: data.providerName,
-        providerNPI: data.providerNPI,
-        diagnosisCode: data.diagnosisCode,
-        procedureCode: data.procedureCode,
+        providerName: data.providerName || null,
+        providerNPI: data.providerNPI || null,
+        diagnosisCode: data.diagnosisCode || null,
+        procedureCode: data.procedureCode || null,
         pdfUrl,
         createdById: session.user.id,
       },
@@ -80,10 +80,10 @@ export async function updateReceipt(
     planPrice: number
     planWeeks: number
     chargeAmount: number
-    providerName: string
-    providerNPI: string
-    diagnosisCode: string
-    procedureCode: string
+    providerName?: string | null
+    providerNPI?: string | null
+    diagnosisCode?: string | null
+    procedureCode?: string | null
   }
 ) {
   try {

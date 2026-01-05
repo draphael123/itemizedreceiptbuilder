@@ -42,7 +42,7 @@ export function ReceiptWizard() {
     const stepFields: Record<number, (keyof ReceiptFormData)[]> = {
       0: ["patientName", "patientDOB", "chargeDate", "coverageStartDate", "coverageEndDate", "patientState"],
       1: ["planPrice", "planWeeks", "medications", "chargeAmount"],
-      2: ["providerName", "providerNPI", "diagnosisCode", "procedureCode"],
+      2: [], // Provider details are now optional, so no validation needed
     }
 
     const fieldsToValidate = stepFields[currentStep] || []

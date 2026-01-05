@@ -111,25 +111,35 @@ export async function generateReceiptPDF(
           </View>
         </View>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Provider Information</Text>
-          <View style={styles.row}>
-            <Text style={styles.label}>Provider Name:</Text>
-            <Text style={styles.value}>{data.providerName}</Text>
+        {(data.providerName || data.providerNPI || data.diagnosisCode || data.procedureCode) && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Provider Information</Text>
+            {data.providerName && (
+              <View style={styles.row}>
+                <Text style={styles.label}>Provider Name:</Text>
+                <Text style={styles.value}>{data.providerName}</Text>
+              </View>
+            )}
+            {data.providerNPI && (
+              <View style={styles.row}>
+                <Text style={styles.label}>NPI:</Text>
+                <Text style={styles.value}>{data.providerNPI}</Text>
+              </View>
+            )}
+            {data.diagnosisCode && (
+              <View style={styles.row}>
+                <Text style={styles.label}>Diagnosis Code:</Text>
+                <Text style={styles.value}>{data.diagnosisCode}</Text>
+              </View>
+            )}
+            {data.procedureCode && (
+              <View style={styles.row}>
+                <Text style={styles.label}>Procedure Code:</Text>
+                <Text style={styles.value}>{data.procedureCode}</Text>
+              </View>
+            )}
           </View>
-          <View style={styles.row}>
-            <Text style={styles.label}>NPI:</Text>
-            <Text style={styles.value}>{data.providerNPI}</Text>
-          </View>
-          <View style={styles.row}>
-            <Text style={styles.label}>Diagnosis Code:</Text>
-            <Text style={styles.value}>{data.diagnosisCode}</Text>
-          </View>
-          <View style={styles.row}>
-            <Text style={styles.label}>Procedure Code:</Text>
-            <Text style={styles.value}>{data.procedureCode}</Text>
-          </View>
-        </View>
+        )}
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Itemized Breakdown</Text>

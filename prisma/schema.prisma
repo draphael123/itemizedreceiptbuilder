@@ -93,10 +93,10 @@ model Receipt {
   breakdown         String   // JSON string of breakdown (SQLite doesn't support Json type)
   adjustmentAmount  Float?   // Adjustment if needed
   adjustmentReason  String?  // Reason for adjustment
-  providerName      String
-  providerNPI       String
-  diagnosisCode     String
-  procedureCode     String
+  providerName      String?
+  providerNPI       String?
+  diagnosisCode     String?
+  procedureCode     String?
   pdfUrl            String?  // Vercel Blob URL
   createdById       String
   createdBy         User     @relation(fields: [createdById], references: [id])

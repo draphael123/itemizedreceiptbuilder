@@ -23,10 +23,10 @@ const receiptEditSchema = z.object({
   planPrice: z.number().positive(),
   planWeeks: z.number().int().positive(),
   chargeAmount: z.number().positive(),
-  providerName: z.string().min(1),
-  providerNPI: z.string().min(1),
-  diagnosisCode: z.string().min(1),
-  procedureCode: z.string().min(1),
+  providerName: z.string().optional(),
+  providerNPI: z.string().optional(),
+  diagnosisCode: z.string().optional(),
+  procedureCode: z.string().optional(),
 })
 
 type ReceiptEditFormData = z.infer<typeof receiptEditSchema>

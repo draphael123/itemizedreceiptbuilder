@@ -15,11 +15,11 @@ export const receiptSchema = z.object({
   medications: z.array(z.string()).min(1, "At least one medication is required"),
   chargeAmount: z.number().positive("Charge amount must be positive"),
 
-  // Step 3: Provider Details
-  providerName: z.string().min(1, "Provider name is required"),
-  providerNPI: z.string().min(1, "Provider NPI is required"),
-  diagnosisCode: z.string().min(1, "Diagnosis code is required"),
-  procedureCode: z.string().min(1, "Procedure code is required"),
+  // Step 3: Provider Details (optional)
+  providerName: z.string().optional(),
+  providerNPI: z.string().optional(),
+  diagnosisCode: z.string().optional(),
+  procedureCode: z.string().optional(),
 
   // Step 4: Adjustment (optional)
   adjustmentAmount: z.number().optional(),
