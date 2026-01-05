@@ -11,9 +11,15 @@ interface PlanMedsStepProps {
 }
 
 const AVAILABLE_MEDICATIONS = [
-  { key: "medication-a", label: "Semaglutide (Wegovy)" },
-  { key: "medication-b", label: "Tirzepatide (Mounjaro)" },
-  { key: "medication-c", label: "Liraglutide (Saxenda)" },
+  { key: "medication-a", label: "T Cypionate" },
+  { key: "medication-b", label: "T Cream" },
+  { key: "medication-c", label: "Enclomiphene (25mg)" },
+  { key: "medication-d", label: "Tadalafil (only) (5mg)" },
+  { key: "medication-e", label: "Sildenafil (only) (20mg)" },
+  { key: "medication-f", label: "T/Est Cream" },
+  { key: "medication-g", label: "Progesterone" },
+  { key: "medication-h", label: "Semaglutide (RR $150)" },
+  { key: "medication-i", label: "Tirzepatide (RR $375)" },
 ]
 
 export function PlanMedsStep({ form }: PlanMedsStepProps) {
