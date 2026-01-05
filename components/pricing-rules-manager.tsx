@@ -79,15 +79,17 @@ export function PricingRulesManager({ initialRules }: PricingRulesManagerProps) 
         })
       } else {
         toast({
-          title: "Error",
-          description: result.error || "Failed to create pricing rule",
+          title: "Error Creating Rule",
+          description: result.error || "Failed to create pricing rule. Check the console for details.",
           variant: "destructive",
         })
+        console.error("Pricing rule creation failed:", result.error)
       }
-    } catch (error) {
+    } catch (error: any) {
+      console.error("Unexpected error creating pricing rule:", error)
       toast({
-        title: "Error",
-        description: "An unexpected error occurred",
+        title: "Unexpected Error",
+        description: error.message || "An unexpected error occurred. Please check the browser console.",
         variant: "destructive",
       })
     } finally {
