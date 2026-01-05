@@ -17,9 +17,89 @@ export default async function Home() {
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
             Receipt Builder
           </h1>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground mb-6">
             Create itemized receipts for patient plans with guided workflow
           </p>
+        </div>
+
+        {/* Benefits Section */}
+        <div className="mb-12 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 rounded-xl p-8 border-2 border-blue-200 shadow-lg">
+          <h2 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            ✨ Why Use Receipt Builder?
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-blue-500">
+              <div className="text-4xl mb-3">⚡</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Save Time</h3>
+              <p className="text-gray-700 dark:text-gray-300 text-sm">
+                Automate calculations and PDF generation. What used to take 30+ minutes now takes just 5 minutes per receipt.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-green-500">
+              <div className="text-4xl mb-3">🎯</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Ensure Accuracy</h3>
+              <p className="text-gray-700 dark:text-gray-300 text-sm">
+                Eliminate manual calculation errors. The system automatically calculates totals and validates that everything matches.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-purple-500">
+              <div className="text-4xl mb-3">✅</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Stay Compliant</h3>
+              <p className="text-gray-700 dark:text-gray-300 text-sm">
+                Automatic state-specific rule application ensures your receipts meet regulatory requirements (e.g., NY lab cost rules).
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-pink-500">
+              <div className="text-4xl mb-3">📊</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Professional Output</h3>
+              <p className="text-gray-700 dark:text-gray-300 text-sm">
+                Generate polished, professional PDF receipts with consistent formatting and complete itemization every time.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-orange-500">
+              <div className="text-4xl mb-3">🔄</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Streamlined Workflow</h3>
+              <p className="text-gray-700 dark:text-gray-300 text-sm">
+                Guided 5-step wizard ensures you never miss information. Clear progress indicators keep you on track.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-cyan-500">
+              <div className="text-4xl mb-3">💾</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Centralized Storage</h3>
+              <p className="text-gray-700 dark:text-gray-300 text-sm">
+                All receipts stored securely in one place. Easy search, download, and task management for better organization.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-yellow-500">
+              <div className="text-4xl mb-3">🧮</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Smart Calculations</h3>
+              <p className="text-gray-700 dark:text-gray-300 text-sm">
+                Automatic cost breakdown by category. Handles adjustments when needed and ensures totals always match.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-red-500">
+              <div className="text-4xl mb-3">📋</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Task Integration</h3>
+              <p className="text-gray-700 dark:text-gray-300 text-sm">
+                Link receipts to tasks, track completion status, and manage your workflow all in one place.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow border-t-4 border-indigo-500">
+              <div className="text-4xl mb-3">⚙️</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Flexible Pricing</h3>
+              <p className="text-gray-700 dark:text-gray-300 text-sm">
+                Easy pricing rule management. Import from spreadsheets or create custom rules for any plan combination.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Quick Actions */}
