@@ -12,7 +12,8 @@
     "db:migrate": "prisma migrate dev",
     "db:generate": "prisma generate",
     "db:seed": "tsx prisma/seed.ts",
-    "import:pricing": "tsx scripts/import-pricing-from-csv.ts"
+    "import:pricing": "tsx scripts/import-pricing-from-csv.ts",
+    "make-admin": "tsx scripts/make-admin.ts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.4.0",
