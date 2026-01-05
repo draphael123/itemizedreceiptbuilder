@@ -17,6 +17,16 @@ export function Nav() {
           </Link>
               {session && (
                 <div className="flex items-center gap-4">
+                  <Link href="/receipts">
+                    <Button variant="ghost" size="sm" className="text-gray-700 dark:text-gray-300">
+                      📄 Receipts
+                    </Button>
+                  </Link>
+                  <Link href="/admin/setup">
+                    <Button variant="ghost" size="sm" className="text-gray-700 dark:text-gray-300">
+                      ⚙️ Admin
+                    </Button>
+                  </Link>
                   <DarkModeToggle />
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300 bg-white/50 dark:bg-gray-800/50 px-3 py-1.5 rounded-full">
                     👤 {session.user?.name || session.user?.email}
