@@ -52,10 +52,10 @@ export function ReceiptEditForm({ receipt }: ReceiptEditFormProps) {
       planPrice: receipt.planPrice,
       planWeeks: receipt.planWeeks,
       chargeAmount: receipt.chargeAmount,
-      providerName: receipt.providerName,
-      providerNPI: receipt.providerNPI,
-      diagnosisCode: receipt.diagnosisCode,
-      procedureCode: receipt.procedureCode,
+      providerName: receipt.providerName || "",
+      providerNPI: receipt.providerNPI || "",
+      diagnosisCode: receipt.diagnosisCode || "",
+      procedureCode: receipt.procedureCode || "",
     },
   })
 
@@ -198,7 +198,7 @@ export function ReceiptEditForm({ receipt }: ReceiptEditFormProps) {
               )}
             </div>
             <div>
-              <Label htmlFor="providerName">Provider Name *</Label>
+              <Label htmlFor="providerName">Provider Name (optional)</Label>
               <Input id="providerName" {...form.register("providerName")} />
               {form.formState.errors.providerName && (
                 <p className="text-sm text-destructive mt-1">
@@ -207,7 +207,7 @@ export function ReceiptEditForm({ receipt }: ReceiptEditFormProps) {
               )}
             </div>
             <div>
-              <Label htmlFor="providerNPI">Provider NPI *</Label>
+              <Label htmlFor="providerNPI">Provider NPI (optional)</Label>
               <Input id="providerNPI" {...form.register("providerNPI")} />
               {form.formState.errors.providerNPI && (
                 <p className="text-sm text-destructive mt-1">
@@ -216,7 +216,7 @@ export function ReceiptEditForm({ receipt }: ReceiptEditFormProps) {
               )}
             </div>
             <div>
-              <Label htmlFor="diagnosisCode">Diagnosis Code *</Label>
+              <Label htmlFor="diagnosisCode">Diagnosis Code (optional)</Label>
               <Input id="diagnosisCode" {...form.register("diagnosisCode")} />
               {form.formState.errors.diagnosisCode && (
                 <p className="text-sm text-destructive mt-1">
@@ -225,7 +225,7 @@ export function ReceiptEditForm({ receipt }: ReceiptEditFormProps) {
               )}
             </div>
             <div>
-              <Label htmlFor="procedureCode">Procedure Code *</Label>
+              <Label htmlFor="procedureCode">Procedure Code (optional)</Label>
               <Input id="procedureCode" {...form.register("procedureCode")} />
               {form.formState.errors.procedureCode && (
                 <p className="text-sm text-destructive mt-1">

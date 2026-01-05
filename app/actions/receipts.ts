@@ -112,10 +112,10 @@ export async function updateReceipt(
         planPrice: data.planPrice,
         planWeeks: data.planWeeks,
         chargeAmount: data.chargeAmount,
-        providerName: data.providerName,
-        providerNPI: data.providerNPI,
-        diagnosisCode: data.diagnosisCode,
-        procedureCode: data.procedureCode,
+        providerName: data.providerName || null,
+        providerNPI: data.providerNPI || null,
+        diagnosisCode: data.diagnosisCode || null,
+        procedureCode: data.procedureCode || null,
       },
     })
 
