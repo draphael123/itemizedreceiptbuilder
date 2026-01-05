@@ -25,9 +25,13 @@ export default async function ReceiptsPage() {
     <div className="container mx-auto py-10">
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold">Receipts</h1>
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            📄 Receipts
+          </h1>
           <Link href="/receipts/new">
-            <Button>Create New Receipt</Button>
+            <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-lg">
+              ✨ Create New Receipt
+            </Button>
           </Link>
         </div>
 
@@ -41,10 +45,19 @@ export default async function ReceiptsPage() {
           </Card>
         ) : (
           <div className="grid gap-4">
-            {receipts.map((receipt) => (
-              <Card key={receipt.id}>
-                <CardHeader>
-                  <CardTitle>{receipt.patientName}</CardTitle>
+            {receipts.map((receipt, index) => (
+              <Card 
+                key={receipt.id}
+                className="border-2 hover:border-purple-300 transition-all hover:shadow-lg bg-gradient-to-br from-white to-purple-50/30"
+                style={{
+                  borderLeftColor: `hsl(${(index * 60) % 360}, 70%, 60%)`,
+                  borderLeftWidth: '4px'
+                }}
+              >
+                <CardHeader className="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-t-lg">
+                  <CardTitle className="flex items-center gap-2">
+                    👤 {receipt.patientName}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">

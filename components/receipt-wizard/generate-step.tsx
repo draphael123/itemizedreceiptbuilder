@@ -64,18 +64,32 @@ export function GenerateStep({ form, breakdown }: GenerateStepProps) {
 
   return (
     <div className="space-y-4">
-      <Card>
+      <Card className="border-2 border-green-200 bg-gradient-to-br from-green-50 to-emerald-50">
         <CardContent className="pt-6">
-          <p className="text-muted-foreground mb-4">
-            Review all information and click Generate to create the receipt PDF and save it to the database.
-          </p>
+          <div className="text-center mb-6">
+            <div className="text-6xl mb-4">🎉</div>
+            <p className="text-lg font-semibold text-gray-700 mb-2">
+              Ready to Generate!
+            </p>
+            <p className="text-muted-foreground">
+              Review all information and click Generate to create the receipt PDF and save it to the database.
+            </p>
+          </div>
           <Button
             onClick={handleGenerate}
             disabled={isGenerating}
             size="lg"
-            className="w-full"
+            className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg shadow-green-500/50 text-lg py-6"
           >
-            {isGenerating ? "Generating..." : "Generate Receipt & Save"}
+            {isGenerating ? (
+              <span className="flex items-center gap-2">
+                <span className="animate-spin">⏳</span> Generating...
+              </span>
+            ) : (
+              <span className="flex items-center gap-2">
+                ✨ Generate Receipt & Save
+              </span>
+            )}
           </Button>
         </CardContent>
       </Card>

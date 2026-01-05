@@ -147,9 +147,11 @@ export function PricingRulesManager({ initialRules }: PricingRulesManagerProps) 
 
   return (
     <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle>Create New Pricing Rule</CardTitle>
+      <Card className="border-2 border-green-200 bg-gradient-to-br from-green-50 to-emerald-50 shadow-lg">
+        <CardHeader className="bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-t-lg">
+          <CardTitle className="flex items-center gap-2">
+            ➕ Create New Pricing Rule
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -254,15 +256,21 @@ export function PricingRulesManager({ initialRules }: PricingRulesManagerProps) 
               </Label>
             </div>
           </div>
-          <Button onClick={handleCreate} disabled={isCreating} className="mt-4">
-            Create Rule
+          <Button 
+            onClick={handleCreate} 
+            disabled={isCreating} 
+            className="mt-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg"
+          >
+            {isCreating ? "Creating..." : "✨ Create Rule"}
           </Button>
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Existing Pricing Rules</CardTitle>
+      <Card className="border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-cyan-50 shadow-lg">
+        <CardHeader className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-t-lg">
+          <CardTitle className="flex items-center gap-2">
+            📋 Existing Pricing Rules
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
