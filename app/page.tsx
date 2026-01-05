@@ -26,21 +26,19 @@ export default async function Home() {
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Admin Pricing Rules Button - Prominent */}
         <div className="mb-8 text-center">
-          <Link href="/admin/pricing">
-            <div className="group relative inline-block">
-              <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-orange-500 via-red-500 via-pink-500 to-purple-500 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-              <div className="relative bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-2xl p-1">
-                <div className="relative bg-white dark:bg-gray-900 rounded-xl px-8 py-4">
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl">🔐</span>
-                    <div className="text-left">
-                      <div className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Admin Access</div>
-                      <div className="text-xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent">
-                        Manage Pricing Rules
-                      </div>
+          <Link href="/admin/pricing" className="group relative inline-block cursor-pointer">
+            <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-orange-500 via-red-500 via-pink-500 to-purple-500 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse pointer-events-none"></div>
+            <div className="relative bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-2xl p-1">
+              <div className="relative bg-white dark:bg-gray-900 rounded-xl px-8 py-4 group-hover:scale-105 transition-transform">
+                <div className="flex items-center gap-3">
+                  <span className="text-3xl">🔐</span>
+                  <div className="text-left">
+                    <div className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Admin Access</div>
+                    <div className="text-xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent">
+                      Manage Pricing Rules
                     </div>
-                    <span className="text-2xl">→</span>
                   </div>
+                  <span className="text-2xl group-hover:translate-x-1 transition-transform">→</span>
                 </div>
               </div>
             </div>
