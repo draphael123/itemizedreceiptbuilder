@@ -12,15 +12,17 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     }),
   ],
   callbacks: {
-    async session({ session, token }: any) {
-      if (session.user && token?.sub) {
-        session.user.id = token.sub
+    async session({ session, token, user }: any) {
+      if (session.user) {
+        // Try to get user ID from token first, then from user object
+        session.user.id = token?.sub || user?.id || token?.userId
       }
       return session
     },
-    async jwt({ token, user }: any) {
+    async jwt({ token, user, account }: any) {
       if (user) {
         token.sub = user.id
+        token.userId = user.id
       }
       return token
     },

@@ -11,12 +11,30 @@ export async function createReceipt(data: ReceiptFormData & { breakdown: CostBre
   try {
     const session = await auth()
     
-    if (!session?.user) {
-      return { success: false, error: "Unauthorized - Please sign in to create receipts" }
+    if (!session) {
+      return { success: false, error: "Unauthorized - No session found. Please sign in." }
     }
     
-    if (!session.user.id) {
-      return { success: false, error: "Unauthorized - User ID not found in session. Please try signing out and signing back in." }
+    if (!session.user) {
+      return { success: false, error: "Unauthorized - User not found in session. Please sign in again." }
+    }
+    
+    // Try to get user ID from session or fetch from database
+    let userId = session.user.id
+    
+    if (!userId && session.user.email) {
+      // Fallback: try to get user by email
+      const user = await prisma.user.findUnique({
+        where: { email: session.user.email },
+        select: { id: true },
+      })
+      if (user) {
+        userId = user.id
+      }
+    }
+    
+    if (!userId) {
+      return { success: false, error: "Unauthorized - User ID not found. Please try signing out and signing back in." }
     }
 
     // Generate PDF
@@ -62,7 +80,7 @@ export async function createReceipt(data: ReceiptFormData & { breakdown: CostBre
         diagnosisCode: data.diagnosisCode || null,
         procedureCode: data.procedureCode || null,
         pdfUrl,
-        createdById: session.user.id,
+        createdById: userId,
       },
     })
 
