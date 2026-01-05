@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { CostBreakdownChart } from "@/components/cost-breakdown-chart"
 
 interface ReviewStepProps {
   form: UseFormReturn<ReceiptFormData>
@@ -89,6 +90,7 @@ export function ReviewStep({
 
   return (
     <div className="space-y-6">
+      <CostBreakdownChart breakdown={breakdown} />
       <div className="grid grid-cols-2 gap-4">
         <Card className="border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-white">
           <CardHeader className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-t-lg">
