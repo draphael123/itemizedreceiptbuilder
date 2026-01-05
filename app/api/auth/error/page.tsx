@@ -11,6 +11,7 @@ export default function AuthErrorPage({
   const error = searchParams.error
 
   let errorMessage = "An authentication error occurred."
+  // Allow both string and React elements for error details
   let errorDetails: string | React.ReactNode = "Please try again or contact support if the problem persists."
 
   if (error === "Configuration") {
