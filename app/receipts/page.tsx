@@ -9,6 +9,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ReceiptsSearchFilter } from "@/components/receipts-search-filter"
 import { useReceipts } from "@/hooks/use-receipts"
 import { ReceiptListSkeleton } from "@/components/loading-skeleton"
+import { EmptyState } from "@/components/empty-state"
+import { BulkOperations } from "@/components/bulk-operations"
 
 export default function ReceiptsPage() {
   const { data: session, status } = useSession()
@@ -133,8 +135,11 @@ export default function ReceiptsPage() {
           </Card>
         ) : (
           <>
-            <div className="mb-4 text-sm text-muted-foreground">
-              Showing {filteredReceipts.length} of {receipts?.length || 0} receipts
+            <div className="mb-4 flex justify-between items-center">
+              <div className="text-sm text-muted-foreground">
+                Showing {filteredReceipts.length} of {receipts?.length || 0} receipts
+              </div>
+              <BulkOperations receiptIds={filteredReceipts.map(r => r.id)} allReceiptIds={receipts?.map(r => r.id) || []} />
             </div>
             <div className="grid gap-4">
               {filteredReceipts.map((receipt, index) => (

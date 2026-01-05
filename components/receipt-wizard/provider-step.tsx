@@ -4,6 +4,7 @@ import { UseFormReturn } from "react-hook-form"
 import { ReceiptFormData } from "@/lib/validations"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
+import { AdvancedValidation } from "@/components/advanced-validation"
 
 interface ProviderStepProps {
   form: UseFormReturn<ReceiptFormData>
@@ -67,6 +68,7 @@ export function ProviderStep({ form }: ProviderStepProps) {
           </p>
         )}
       </div>
+      <AdvancedValidation form={form} />
     </div>
   )
 }
