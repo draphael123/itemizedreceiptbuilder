@@ -7,7 +7,9 @@ interface ReceiptDetailsProps {
 }
 
 export function ReceiptDetails({ receipt }: ReceiptDetailsProps) {
-  const breakdown = receipt.breakdown as unknown as CostBreakdown
+  const breakdown = typeof receipt.breakdown === 'string' 
+    ? JSON.parse(receipt.breakdown) as CostBreakdown
+    : receipt.breakdown as unknown as CostBreakdown
 
   return (
     <Card>
@@ -67,7 +69,9 @@ export function ReceiptDetails({ receipt }: ReceiptDetailsProps) {
             </p>
             <p>
               <span className="text-muted-foreground">Medications:</span>{" "}
-              {receipt.medications.join(", ")}
+              {typeof receipt.medications === 'string' 
+                ? JSON.parse(receipt.medications).join(", ")
+                : receipt.medications.join(", ")}
             </p>
           </div>
         </div>

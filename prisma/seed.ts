@@ -212,7 +212,6 @@ async function main() {
         quantity: 1,
       },
     ],
-    skipDuplicates: true,
   })
 
   console.log('Seeding completed!')

@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -16,12 +16,12 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -86,9 +86,9 @@ model Receipt {
   patientState      String   // NY, NJ, MD, etc.
   planPrice         Float
   planWeeks         Int
-  medications       String[] // Array of medication keys
+  medications       String   // JSON string of medication keys array
   chargeAmount      Float    // Total charge amount
-  breakdown         Json     // JSON breakdown of costs
+  breakdown         String   // JSON string of breakdown (SQLite doesn't support Json type)
   adjustmentAmount  Float?   // Adjustment if needed
   adjustmentReason  String?  // Reason for adjustment
   providerName      String
