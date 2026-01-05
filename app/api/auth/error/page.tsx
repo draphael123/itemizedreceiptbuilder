@@ -71,7 +71,7 @@ export default function AuthErrorPage({
                 <Link href="/">
                   <Button variant="outline">Go Home</Button>
                 </Link>
-                <Link href="/api/auth/signin">
+                <Link href="/signin">
                   <Button>Try Again</Button>
                 </Link>
               </div>

@@ -8,7 +8,7 @@ import { SetAdminButton } from "@/components/set-admin-button"
 export default async function AdminSetupPage() {
   const session = await auth()
   if (!session?.user?.id) {
-    redirect("/api/auth/signin")
+    redirect("/signin")
   }
 
   const user = await prisma.user.findUnique({

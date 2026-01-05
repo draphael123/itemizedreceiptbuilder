@@ -47,7 +47,7 @@ export function GenerateStep({ form, breakdown }: GenerateStepProps) {
         variant: "destructive",
       })
       setTimeout(() => {
-        router.push("/api/auth/signin")
+        router.push("/signin")
       }, 2000)
       return
     }

@@ -87,7 +87,7 @@ export default function ReceiptsPage() {
   }
 
   if (!session?.user?.id) {
-    redirect("/api/auth/signin")
+    redirect("/signin")
     return null // This will never execute, but satisfies TypeScript
   }
 

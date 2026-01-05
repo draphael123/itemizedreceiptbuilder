@@ -6,7 +6,7 @@ export default async function NewReceiptPage() {
   const session = await auth()
   
   if (!session?.user?.id) {
-    redirect("/api/auth/signin")
+    redirect("/signin")
   }
 
   return (

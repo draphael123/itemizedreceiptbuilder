@@ -15,7 +15,7 @@ export default async function ReceiptDetailPage({
 }) {
   const session = await auth()
   if (!session?.user?.id) {
-    redirect("/api/auth/signin")
+    redirect("/signin")
   }
 
   const receipt = await prisma.receipt.findUnique({

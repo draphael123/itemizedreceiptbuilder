@@ -7,7 +7,7 @@ import { ReceiptsReport } from "@/components/receipts-report"
 export default async function ReportsPage() {
   const session = await auth()
   if (!session?.user?.id) {
-    redirect("/api/auth/signin")
+    redirect("/signin")
   }
 
   const receipts = await prisma.receipt.findMany({
