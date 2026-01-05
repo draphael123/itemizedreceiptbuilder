@@ -374,6 +374,72 @@ export default async function Home() {
             </div>
           </div>
         </div>
+
+        {/* Purpose & Value Section */}
+        <div className="mt-16 mb-8">
+          <div className="bg-gradient-to-br from-indigo-600 via-purple-600 via-pink-600 via-red-600 to-orange-600 rounded-3xl p-10 shadow-2xl relative overflow-hidden">
+            {/* Animated background pattern */}
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+              <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+            </div>
+            
+            <div className="relative z-10">
+              <div className="text-center mb-8">
+                <h2 className="text-5xl font-bold text-white mb-4 drop-shadow-lg">
+                  🎯 Our Purpose
+                </h2>
+                <div className="h-2 w-32 mx-auto bg-white rounded-full mb-6"></div>
+              </div>
+
+              <div className="max-w-4xl mx-auto">
+                <div className="bg-white/95 dark:bg-gray-900/95 rounded-2xl p-8 shadow-xl mb-6">
+                  <p className="text-xl text-gray-800 dark:text-gray-200 leading-relaxed mb-4 text-center font-medium">
+                    <span className="text-3xl">📋</span> Receipt Builder transforms the complex, time-consuming process of creating itemized medical receipts into a <span className="font-bold text-purple-600 dark:text-purple-400">simple, guided workflow</span> that saves hours of manual work.
+                  </p>
+                  <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-center">
+                    We eliminate calculation errors, ensure regulatory compliance, and deliver professional, accurate receipts every time—all while reducing your administrative burden by <span className="font-bold text-pink-600 dark:text-pink-400">up to 85%</span>.
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="bg-white/90 dark:bg-gray-900/90 rounded-xl p-6 shadow-lg text-center">
+                    <div className="text-4xl mb-3">⚡</div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Speed</h3>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm">
+                      Generate receipts in minutes, not hours. Our automated workflow cuts processing time dramatically.
+                    </p>
+                  </div>
+
+                  <div className="bg-white/90 dark:bg-gray-900/90 rounded-xl p-6 shadow-lg text-center">
+                    <div className="text-4xl mb-3">🎯</div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Accuracy</h3>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm">
+                      Built-in validation ensures totals always match. No more manual calculation errors or discrepancies.
+                    </p>
+                  </div>
+
+                  <div className="bg-white/90 dark:bg-gray-900/90 rounded-xl p-6 shadow-lg text-center">
+                    <div className="text-4xl mb-3">🛡️</div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Compliance</h3>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm">
+                      Automatic state-specific rule application keeps you compliant with regulations like NY lab cost rules.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-8 text-center">
+                  <div className="inline-block bg-white/90 dark:bg-gray-900/90 rounded-xl px-8 py-4 shadow-lg">
+                    <p className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+                      <span className="text-2xl">💡</span> Built for healthcare administrators who value <span className="text-purple-600 dark:text-purple-400 font-bold">efficiency</span>, <span className="text-pink-600 dark:text-pink-400 font-bold">precision</span>, and <span className="text-blue-600 dark:text-blue-400 font-bold">professionalism</span>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
