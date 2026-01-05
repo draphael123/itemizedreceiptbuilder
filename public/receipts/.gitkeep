@@ -1,0 +1,3 @@
+# This directory stores PDF receipts in development mode
+# In production, receipts are stored in Vercel Blob
+
