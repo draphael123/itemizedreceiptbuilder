@@ -7,6 +7,7 @@
 import { execSync } from 'child_process'
 import { existsSync, writeFileSync, readFileSync } from 'fs'
 import { join } from 'path'
+import { randomBytes } from 'crypto'
 
 console.log('🚀 Starting automatic setup...\n')
 
@@ -101,8 +102,7 @@ console.log('\n💡 Tip: The app will work without Google OAuth for local testin
 console.log('   Just sign in with any email when prompted.\n')
 
 function generateSecret(): string {
-  return Array.from(crypto.getRandomValues(new Uint8Array(32)))
-    .map(b => b.toString(16).padStart(2, '0'))
-    .join('')
+  // Generate a random secret for NextAuth
+  return randomBytes(32).toString('hex')
 }
 
