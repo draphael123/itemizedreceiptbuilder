@@ -13,6 +13,7 @@ interface ReviewStepProps {
   breakdown: CostBreakdown | null
   setBreakdown: (breakdown: CostBreakdown) => void
   isCalculating: boolean
+  calculationError?: string | null
 }
 
 export function ReviewStep({
@@ -20,6 +21,7 @@ export function ReviewStep({
   breakdown,
   setBreakdown,
   isCalculating,
+  calculationError,
 }: ReviewStepProps) {
   const chargeAmount = form.watch("chargeAmount")
   const calculatedTotal = breakdown ? calculateTotal(breakdown) : 0
@@ -47,8 +49,42 @@ export function ReviewStep({
     return <div className="text-center py-10">Calculating breakdown...</div>
   }
 
+  if (calculationError) {
+    return (
+      <div className="space-y-4">
+        <Card className="border-destructive">
+          <CardContent className="pt-6">
+            <div className="text-center">
+              <p className="text-destructive font-semibold mb-2">Error Calculating Breakdown</p>
+              <p className="text-sm text-muted-foreground">{calculationError}</p>
+              <p className="text-xs text-muted-foreground mt-4">
+                Please ensure pricing rules exist for:
+                <br />
+                Plan Price: ${form.watch("planPrice")}
+                <br />
+                Plan Weeks: {form.watch("planWeeks")}
+                <br />
+                Medications: {form.watch("medications").join(", ")}
+                <br />
+                <br />
+                You can create pricing rules in the Admin section.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    )
+  }
+
   if (!breakdown) {
-    return <div className="text-center py-10">No breakdown available</div>
+    return (
+      <div className="text-center py-10">
+        <p className="text-muted-foreground">No breakdown available</p>
+        <p className="text-sm text-muted-foreground mt-2">
+          Please go back and ensure all fields are filled correctly.
+        </p>
+      </div>
+    )
   }
 
   return (

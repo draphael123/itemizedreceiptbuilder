@@ -27,6 +27,7 @@ export function ReceiptWizard() {
   const [currentStep, setCurrentStep] = useState(0)
   const [breakdown, setBreakdown] = useState<CostBreakdown | null>(null)
   const [isCalculating, setIsCalculating] = useState(false)
+  const [calculationError, setCalculationError] = useState<string | null>(null)
 
   const form = useForm<ReceiptFormData>({
     resolver: zodResolver(receiptSchema),
@@ -53,6 +54,7 @@ export function ReceiptWizard() {
     // If moving to review step, calculate breakdown
     if (currentStep === 2) {
       setIsCalculating(true)
+      setCalculationError(null)
       try {
         const values = form.getValues()
         const result = await calculateBreakdownAction(
@@ -64,9 +66,15 @@ export function ReceiptWizard() {
         )
         if (result.success && result.breakdown) {
           setBreakdown(result.breakdown)
+          setCalculationError(null)
+        } else {
+          setCalculationError(result.error || "Failed to calculate breakdown. Please check that pricing rules exist for this plan.")
+          setBreakdown(null)
         }
-      } catch (error) {
+      } catch (error: any) {
         console.error("Error calculating breakdown:", error)
+        setCalculationError(error.message || "An unexpected error occurred while calculating the breakdown")
+        setBreakdown(null)
       } finally {
         setIsCalculating(false)
       }
@@ -129,6 +137,7 @@ export function ReceiptWizard() {
               breakdown={breakdown}
               setBreakdown={setBreakdown}
               isCalculating={isCalculating}
+              calculationError={calculationError}
             />
           )}
           {currentStep === 4 && <GenerateStep form={form} breakdown={breakdown} />}
