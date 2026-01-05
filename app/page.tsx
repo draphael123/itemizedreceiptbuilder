@@ -142,11 +142,21 @@ export default async function Home() {
               </div>
             </div>
           </Link>
-          <Link href="/admin/pricing">
+          <Link href="/admin/setup">
             <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500 p-[3px] transition-all hover:scale-105 hover:shadow-2xl hover:shadow-green-500/50">
               <div className="relative h-36 rounded-2xl bg-gradient-to-br from-white to-green-50 dark:from-gray-900 dark:to-gray-800 flex flex-col items-center justify-center p-4">
                 <div className="text-4xl mb-2 group-hover:scale-110 transition-transform">⚙️</div>
                 <Button size="lg" variant="outline" className="w-full text-lg bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white border-0 shadow-lg">
+                  Admin Setup
+                </Button>
+              </div>
+            </div>
+          </Link>
+          <Link href="/admin/pricing">
+            <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-500 via-amber-500 to-yellow-500 p-[3px] transition-all hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/50">
+              <div className="relative h-36 rounded-2xl bg-gradient-to-br from-white to-orange-50 dark:from-gray-900 dark:to-gray-800 flex flex-col items-center justify-center p-4">
+                <div className="text-4xl mb-2 group-hover:scale-110 transition-transform">💰</div>
+                <Button size="lg" variant="outline" className="w-full text-lg bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white border-0 shadow-lg">
                   Manage Pricing Rules
                 </Button>
               </div>
