@@ -9,7 +9,7 @@ export function Nav() {
   const { data: session } = useSession()
 
   return (
-    <nav className="border-b-2 border-purple-200 bg-gradient-to-r from-purple-100 via-pink-100 via-blue-100 to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 shadow-md">
+    <nav className="border-b-4 border-gradient-to-r from-purple-500 via-pink-500 via-blue-500 via-cyan-500 to-green-500 bg-gradient-to-r from-purple-200 via-pink-200 via-blue-200 via-cyan-200 to-green-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 shadow-lg">
       <div className="container mx-auto px-4 py-5">
         <div className="flex justify-between items-center">
           <Link href="/" className="text-3xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 via-blue-600 to-purple-600 bg-clip-text text-transparent hover:scale-110 transition-transform bg-[length:200%_auto] animate-pulse-slow">

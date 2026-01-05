@@ -12,33 +12,58 @@ export default async function Home() {
 
   return (
     <div className="container mx-auto py-10 relative overflow-hidden">
-      {/* Animated background elements */}
+      {/* Animated background elements - More colorful */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-float"></div>
+        <div className="absolute top-40 right-10 w-96 h-96 bg-gradient-to-r from-pink-400 to-red-400 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute -bottom-8 left-1/2 w-96 h-96 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-float" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-float" style={{ animationDelay: '4s' }}></div>
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
+        {/* Admin Pricing Rules Button - Prominent */}
+        <div className="mb-8 text-center">
+          <Link href="/admin/pricing">
+            <div className="group relative inline-block">
+              <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-orange-500 via-red-500 via-pink-500 to-purple-500 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+              <div className="relative bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-2xl p-1">
+                <div className="relative bg-white dark:bg-gray-900 rounded-xl px-8 py-4">
+                  <div className="flex items-center gap-3">
+                    <span className="text-3xl">🔐</span>
+                    <div className="text-left">
+                      <div className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Admin Access</div>
+                      <div className="text-xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent">
+                        Manage Pricing Rules
+                      </div>
+                    </div>
+                    <span className="text-2xl">→</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </div>
+
         <div className="text-center mb-12">
           <div className="inline-block mb-4">
-            <h1 className="text-6xl font-bold mb-2 bg-gradient-to-r from-purple-600 via-pink-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-pulse-slow bg-[length:200%_auto]">
+            <h1 className="text-6xl font-bold mb-2 bg-gradient-to-r from-purple-600 via-pink-600 via-blue-600 via-cyan-600 via-green-600 to-purple-600 bg-clip-text text-transparent animate-pulse-slow bg-[length:300%_auto]">
               🧾 Receipt Builder
             </h1>
-            <div className="h-1 w-full bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full"></div>
+            <div className="h-2 w-full bg-gradient-to-r from-purple-600 via-pink-600 via-blue-600 via-cyan-600 to-green-600 rounded-full shadow-lg"></div>
           </div>
           <p className="text-xl text-gray-700 dark:text-gray-300 font-medium">
             Create itemized receipts for patient plans with guided workflow
           </p>
-          <div className="flex justify-center gap-2 mt-4">
-            <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm font-semibold">⚡ Fast</span>
-            <span className="px-3 py-1 bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-300 rounded-full text-sm font-semibold">✅ Accurate</span>
-            <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm font-semibold">🔒 Secure</span>
+          <div className="flex justify-center gap-3 mt-4">
+            <span className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full text-sm font-semibold shadow-lg hover:scale-110 transition-transform">⚡ Fast</span>
+            <span className="px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full text-sm font-semibold shadow-lg hover:scale-110 transition-transform">✅ Accurate</span>
+            <span className="px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full text-sm font-semibold shadow-lg hover:scale-110 transition-transform">🔒 Secure</span>
           </div>
         </div>
 
-        {/* Benefits Section */}
-        <div className="mb-12 bg-gradient-to-br from-blue-50 via-purple-50 via-pink-50 to-blue-50 dark:from-gray-900 dark:via-gray-800 rounded-2xl p-8 border-4 border-transparent bg-clip-padding" style={{ backgroundImage: 'linear-gradient(white, white), linear-gradient(45deg, #a855f7, #ec4899, #3b82f6, #06b6d4)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}>
+        {/* Benefits Section - More colorful */}
+        <div className="mb-12 bg-gradient-to-br from-blue-100 via-purple-100 via-pink-100 via-yellow-100 via-orange-100 to-blue-100 dark:from-gray-900 dark:via-gray-800 rounded-2xl p-8 border-4 border-transparent bg-clip-padding shadow-2xl" style={{ backgroundImage: 'linear-gradient(white, white), linear-gradient(45deg, #a855f7, #ec4899, #3b82f6, #06b6d4, #10b981, #f59e0b)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}>
           <div className="text-center mb-8">
             <h2 className="text-4xl font-bold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-pulse-slow">
               ✨ Why Use Receipt Builder?
@@ -46,7 +71,7 @@ export default async function Home() {
             <div className="h-1 w-32 mx-auto bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full"></div>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-blue-500 hover:scale-105 hover:-translate-y-1 group">
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/30 dark:to-cyan-900/30 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-blue-500 hover:scale-105 hover:-translate-y-1 group">
               <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">⚡</div>
               <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-blue-600 transition-colors">Save Time</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
@@ -54,7 +79,7 @@ export default async function Home() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-green-500 hover:scale-105 hover:-translate-y-1 group">
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/30 dark:to-emerald-900/30 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-green-500 hover:scale-105 hover:-translate-y-1 group">
               <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">🎯</div>
               <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-green-600 transition-colors">Ensure Accuracy</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
@@ -62,7 +87,7 @@ export default async function Home() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-purple-500 hover:scale-105 hover:-translate-y-1 group">
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/30 dark:to-pink-900/30 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-purple-500 hover:scale-105 hover:-translate-y-1 group">
               <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">✅</div>
               <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-purple-600 transition-colors">Stay Compliant</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
@@ -70,7 +95,7 @@ export default async function Home() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-pink-500 hover:scale-105 hover:-translate-y-1 group">
+            <div className="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/30 dark:to-rose-900/30 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-pink-500 hover:scale-105 hover:-translate-y-1 group">
               <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">📊</div>
               <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-pink-600 transition-colors">Professional Output</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
@@ -78,7 +103,7 @@ export default async function Home() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-orange-500 hover:scale-105 hover:-translate-y-1 group">
+            <div className="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/30 dark:to-amber-900/30 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-orange-500 hover:scale-105 hover:-translate-y-1 group">
               <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">🔄</div>
               <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-orange-600 transition-colors">Streamlined Workflow</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
@@ -86,7 +111,7 @@ export default async function Home() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-cyan-500 hover:scale-105 hover:-translate-y-1 group">
+            <div className="bg-gradient-to-br from-cyan-50 to-teal-50 dark:from-cyan-900/30 dark:to-teal-900/30 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-cyan-500 hover:scale-105 hover:-translate-y-1 group">
               <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">💾</div>
               <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-cyan-600 transition-colors">Centralized Storage</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
@@ -94,7 +119,7 @@ export default async function Home() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-yellow-500 hover:scale-105 hover:-translate-y-1 group">
+            <div className="bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-900/30 dark:to-amber-900/30 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-yellow-500 hover:scale-105 hover:-translate-y-1 group">
               <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">🧮</div>
               <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-yellow-600 transition-colors">Smart Calculations</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
@@ -102,7 +127,7 @@ export default async function Home() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-red-500 hover:scale-105 hover:-translate-y-1 group">
+            <div className="bg-gradient-to-br from-red-50 to-rose-50 dark:from-red-900/30 dark:to-rose-900/30 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-red-500 hover:scale-105 hover:-translate-y-1 group">
               <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">📋</div>
               <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-red-600 transition-colors">Task Integration</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
@@ -110,7 +135,7 @@ export default async function Home() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-indigo-500 hover:scale-105 hover:-translate-y-1 group">
+            <div className="bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-900/30 dark:to-violet-900/30 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-indigo-500 hover:scale-105 hover:-translate-y-1 group">
               <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">⚙️</div>
               <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-indigo-600 transition-colors">Flexible Pricing</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
@@ -185,7 +210,7 @@ export default async function Home() {
           
           <div className="space-y-6">
             {/* Step 1 */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border-l-4 border-purple-500 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+            <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/30 dark:to-pink-900/30 rounded-xl p-6 border-l-4 border-purple-500 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
                   1
@@ -206,7 +231,7 @@ export default async function Home() {
             </div>
 
             {/* Step 2 */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border-l-4 border-blue-500 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+            <div className="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/30 dark:to-cyan-900/30 rounded-xl p-6 border-l-4 border-blue-500 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
                   2
@@ -227,7 +252,7 @@ export default async function Home() {
             </div>
 
             {/* Step 3 */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border-l-4 border-green-500 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/30 dark:to-emerald-900/30 rounded-xl p-6 border-l-4 border-green-500 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
                   3
@@ -266,7 +291,7 @@ export default async function Home() {
             </div>
 
             {/* Step 4 */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border-l-4 border-orange-500 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+            <div className="bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-900/30 dark:to-amber-900/30 rounded-xl p-6 border-l-4 border-orange-500 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-orange-600 to-red-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
                   4
@@ -293,7 +318,7 @@ export default async function Home() {
             </div>
 
             {/* Step 5 */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border-l-4 border-pink-500 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+            <div className="bg-gradient-to-r from-pink-50 to-rose-50 dark:from-pink-900/30 dark:to-rose-900/30 rounded-xl p-6 border-l-4 border-pink-500 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-pink-600 to-rose-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
                   5
