@@ -1,7 +1,6 @@
 "use server"
 
-import { getServerSession } from "next-auth"
-import { authOptions } from "@/app/api/auth/[...nextauth]/route"
+import { auth } from "@/lib/auth"
 import { prisma } from "@/lib/prisma"
 import { ReceiptFormData } from "@/lib/validations"
 import { CostBreakdown } from "@/lib/pricing-calculator"
@@ -10,7 +9,7 @@ import { put } from "@vercel/blob"
 
 export async function createReceipt(data: ReceiptFormData & { breakdown: CostBreakdown }) {
   try {
-    const session = await getServerSession(authOptions)
+    const session = await auth()
     if (!session?.user?.id) {
       return { success: false, error: "Unauthorized" }
     }

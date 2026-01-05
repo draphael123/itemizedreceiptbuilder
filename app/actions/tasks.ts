@@ -1,7 +1,6 @@
 "use server"
 
-import { getServerSession } from "next-auth"
-import { authOptions } from "@/app/api/auth/[...nextauth]/route"
+import { auth } from "@/lib/auth"
 import { prisma } from "@/lib/prisma"
 
 export async function createTask(data: {
@@ -10,7 +9,7 @@ export async function createTask(data: {
   receiptId: string
 }) {
   try {
-    const session = await getServerSession(authOptions)
+    const session = await auth()
     if (!session?.user?.id) {
       return { success: false, error: "Unauthorized" }
     }
@@ -33,7 +32,7 @@ export async function createTask(data: {
 
 export async function updateTaskStatus(taskId: string, status: string) {
   try {
-    const session = await getServerSession(authOptions)
+    const session = await auth()
     if (!session?.user?.id) {
       return { success: false, error: "Unauthorized" }
     }

@@ -1,7 +1,6 @@
 "use server"
 
-import { getServerSession } from "next-auth"
-import { authOptions } from "@/app/api/auth/[...nextauth]/route"
+import { auth } from "@/lib/auth"
 import { prisma } from "@/lib/prisma"
 
 export async function createPricingRule(data: {
@@ -16,7 +15,7 @@ export async function createPricingRule(data: {
   isActive: boolean
 }) {
   try {
-    const session = await getServerSession(authOptions)
+    const session = await auth()
     if (!session?.user?.id) {
       return { success: false, error: "Unauthorized" }
     }
@@ -43,7 +42,7 @@ export async function updatePricingRule(
   }
 ) {
   try {
-    const session = await getServerSession(authOptions)
+    const session = await auth()
     if (!session?.user?.id) {
       return { success: false, error: "Unauthorized" }
     }
@@ -62,7 +61,7 @@ export async function updatePricingRule(
 
 export async function deletePricingRule(id: string) {
   try {
-    const session = await getServerSession(authOptions)
+    const session = await auth()
     if (!session?.user?.id) {
       return { success: false, error: "Unauthorized" }
     }
