@@ -20,7 +20,7 @@ export async function createReceipt(data: ReceiptFormData & { breakdown: CostBre
     // Upload to Vercel Blob (or use local storage in dev)
     let pdfUrl: string
     if (process.env.BLOB_READ_WRITE_TOKEN) {
-      const blob = await put(`receipts/${Date.now()}-${data.patientName}.pdf`, pdfBuffer, {
+      const blob = await put(`receipts/${Date.now()}-${data.patientName}.pdf`, pdfBuffer.buffer, {
         access: "public",
         contentType: "application/pdf",
       })
