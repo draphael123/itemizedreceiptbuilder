@@ -9,9 +9,11 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useToast } from "@/components/ui/use-toast"
 import { updateReceipt } from "@/app/actions/receipts"
 import { z } from "zod"
+import { US_STATES } from "@/lib/states"
 
 const receiptEditSchema = z.object({
   patientName: z.string().min(1, "Patient name is required"),
@@ -131,7 +133,21 @@ export function ReceiptEditForm({ receipt }: ReceiptEditFormProps) {
             </div>
             <div>
               <Label htmlFor="patientState">State *</Label>
-              <Input id="patientState" {...form.register("patientState")} />
+              <Select
+                value={form.watch("patientState")}
+                onValueChange={(value) => form.setValue("patientState", value as any)}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Select state" />
+                </SelectTrigger>
+                <SelectContent className="max-h-[300px]">
+                  {US_STATES.map((state) => (
+                    <SelectItem key={state.code} value={state.code}>
+                      {state.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
               {form.formState.errors.patientState && (
                 <p className="text-sm text-destructive mt-1">
                   {form.formState.errors.patientState.message}

@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { US_STATES } from "@/lib/states"
 
 interface ReceiptsSearchFilterProps {
   onSearchChange: (search: string) => void
@@ -82,14 +83,13 @@ export function ReceiptsSearchFilter({ onSearchChange, onFilterChange }: Receipt
               <SelectTrigger className="bg-white">
                 <SelectValue placeholder="All states" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="max-h-[300px]">
                 <SelectItem value="">All States</SelectItem>
-                <SelectItem value="NY">New York</SelectItem>
-                <SelectItem value="NJ">New Jersey</SelectItem>
-                <SelectItem value="MD">Maryland</SelectItem>
-                <SelectItem value="CA">California</SelectItem>
-                <SelectItem value="TX">Texas</SelectItem>
-                <SelectItem value="FL">Florida</SelectItem>
+                {US_STATES.map((state) => (
+                  <SelectItem key={state.code} value={state.code}>
+                    {state.name}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>

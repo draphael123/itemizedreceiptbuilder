@@ -1,4 +1,5 @@
 import { z } from "zod"
+import { STATE_CODES } from "./states"
 
 export const receiptSchema = z.object({
   // Step 1: Patient Info
@@ -7,7 +8,7 @@ export const receiptSchema = z.object({
   chargeDate: z.date(),
   coverageStartDate: z.date(),
   coverageEndDate: z.date(),
-  patientState: z.enum(["NY", "NJ", "MD", "CA", "TX", "FL"]),
+  patientState: z.enum(STATE_CODES),
 
   // Step 2: Plan + Meds
   planPrice: z.number().positive("Plan price must be positive"),

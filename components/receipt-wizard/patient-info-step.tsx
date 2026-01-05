@@ -5,6 +5,7 @@ import { ReceiptFormData } from "@/lib/validations"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { US_STATES } from "@/lib/states"
 
 interface PatientInfoStepProps {
   form: UseFormReturn<ReceiptFormData>
@@ -94,13 +95,12 @@ export function PatientInfoStep({ form }: PatientInfoStepProps) {
           <SelectTrigger>
             <SelectValue placeholder="Select state" />
           </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="NY">New York</SelectItem>
-            <SelectItem value="NJ">New Jersey</SelectItem>
-            <SelectItem value="MD">Maryland</SelectItem>
-            <SelectItem value="CA">California</SelectItem>
-            <SelectItem value="TX">Texas</SelectItem>
-            <SelectItem value="FL">Florida</SelectItem>
+          <SelectContent className="max-h-[300px]">
+            {US_STATES.map((state) => (
+              <SelectItem key={state.code} value={state.code}>
+                {state.name}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
         {form.formState.errors.patientState && (
