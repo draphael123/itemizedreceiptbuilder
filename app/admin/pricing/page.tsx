@@ -3,6 +3,7 @@ import { redirect } from "next/navigation"
 import { requireAdmin } from "@/lib/permissions"
 import { prisma } from "@/lib/prisma"
 import { PricingRulesManager } from "@/components/pricing-rules-manager"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default async function AdminPricingPage() {
   const session = await auth()
