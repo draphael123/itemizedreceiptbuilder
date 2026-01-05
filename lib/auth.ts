@@ -27,23 +27,30 @@ if (missingVars.length > 0 && process.env.NODE_ENV !== 'test') {
   }
 }
 
-// Check for required environment variables
+// Check if dev auth is enabled (bypasses Google OAuth)
+const isDevAuthEnabled = process.env.ENABLE_DEV_AUTH === "true"
+
+// Check for required environment variables (only if not using dev auth)
 const authSecret = process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET
 const googleClientId = process.env.GOOGLE_CLIENT_ID
 const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET
 
-if (!authSecret) {
-  throw new Error(
-    'AUTH_SECRET or NEXTAUTH_SECRET environment variable is required. ' +
-    'Generate one with: openssl rand -base64 32'
-  )
-}
+if (!isDevAuthEnabled) {
+  if (!authSecret) {
+    throw new Error(
+      'AUTH_SECRET or NEXTAUTH_SECRET environment variable is required. ' +
+      'Generate one with: openssl rand -base64 32\n' +
+      'Or enable dev mode by setting ENABLE_DEV_AUTH=true in your .env file'
+    )
+  }
 
-if (!googleClientId || !googleClientSecret) {
-  throw new Error(
-    'GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET environment variables are required. ' +
-    'Get them from Google Cloud Console: https://console.cloud.google.com/'
-  )
+  if (!googleClientId || !googleClientSecret) {
+    throw new Error(
+      'GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET environment variables are required. ' +
+      'Get them from Google Cloud Console: https://console.cloud.google.com/\n' +
+      'Or enable dev mode by setting ENABLE_DEV_AUTH=true in your .env file'
+    )
+  }
 }
 
 // Create NextAuth config conditionally
@@ -67,6 +74,18 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   ...nextAuthConfig,
   callbacks: {
     async session({ session, token, user }: any) {
+      // In dev mode, use dev session
+      if (isDevAuthEnabled) {
+        const devSession = await getDevSession()
+        if (devSession) {
+          return {
+            ...session,
+            user: devSession.user,
+            expires: devSession.expires,
+          }
+        }
+      }
+      
       if (session.user) {
         // Try to get user ID from token first, then from user object
         session.user.id = token?.sub || user?.id || token?.userId
