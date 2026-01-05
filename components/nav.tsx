@@ -9,10 +9,10 @@ export function Nav() {
   const { data: session } = useSession()
 
   return (
-    <nav className="border-b-4 border-gradient-to-r from-purple-500 via-pink-500 via-blue-500 via-cyan-500 to-green-500 bg-gradient-to-r from-purple-200 via-pink-200 via-blue-200 via-cyan-200 to-green-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 shadow-lg">
+    <nav className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-sm">
       <div className="container mx-auto px-4 py-5">
         <div className="flex justify-between items-center">
-          <Link href="/" className="text-3xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 via-blue-600 to-purple-600 bg-clip-text text-transparent hover:scale-110 transition-transform bg-[length:200%_auto] animate-pulse-slow">
+          <Link href="/" className="text-3xl font-bold text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
             🧾 Receipt Builder
           </Link>
               {session ? (
@@ -35,7 +35,7 @@ export function Nav() {
                     variant="outline"
                     size="sm"
                     onClick={() => signOut()}
-                    className="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white border-0"
+                    className="text-gray-700 dark:text-gray-300"
                   >
                     Sign Out
                   </Button>
@@ -45,8 +45,9 @@ export function Nav() {
                   <DarkModeToggle />
                   <Button
                     onClick={() => signIn("google", { callbackUrl: "/" })}
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg"
+                    variant="default"
                     size="sm"
+                    className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-200"
                   >
                     🔐 Sign In
                   </Button>
