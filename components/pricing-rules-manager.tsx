@@ -49,14 +49,14 @@ export function PricingRulesManager({ initialRules }: PricingRulesManagerProps) 
     setIsCreating(true)
     try {
       const result = await createPricingRule({
-        planPrice,
-        planWeeks,
+        planPrice: Number(formData.planPrice),
+        planWeeks: Number(formData.planWeeks),
         medicationKey: formData.medicationKey.trim(),
         category: formData.category,
         itemName: formData.itemName.trim(),
         itemDescription: formData.itemDescription?.trim() || null,
-        unitPrice,
-        quantity,
+        unitPrice: Number(formData.unitPrice),
+        quantity: Number(formData.quantity),
         isActive: formData.isActive,
       })
 

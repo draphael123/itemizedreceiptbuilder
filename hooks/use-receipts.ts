@@ -13,7 +13,7 @@ interface Receipt {
   pdfUrl: string | null
 }
 
-export function useReceipts(userId: string) {
+export function useReceipts(userId: string | undefined) {
   const [receipts, setReceipts] = useState<Receipt[] | null>(null)
   const [isLoading, setIsLoading] = useState(true)
 

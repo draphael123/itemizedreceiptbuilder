@@ -48,20 +48,29 @@ export function ExportDialog({ receiptIds, allReceiptIds = [] }: ExportDialogPro
 
       if (format === "csv") {
         result = await exportReceiptsToCSV(idsToExport)
-        if (result.success) {
+        if (result.success && result.data) {
           blob = new Blob([result.data], { type: "text/csv" })
           filename = `receipts-${Date.now()}.csv`
           mimeType = "text/csv"
         }
       } else {
         result = await exportReceiptsToExcel(idsToExport)
-        if (result.success) {
+        if (result.success && result.data) {
           blob = new Blob([result.data], {
             type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
           })
           filename = `receipts-${Date.now()}.xlsx`
           mimeType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         }
+      }
+
+      if (!blob || !filename) {
+        toast({
+          title: "Error",
+          description: result.error || "Failed to export receipts",
+          variant: "destructive",
+        })
+        return
       }
 
       if (result.success && blob) {

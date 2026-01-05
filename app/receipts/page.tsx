@@ -17,15 +17,7 @@ export default function ReceiptsPage() {
   const [search, setSearch] = useState("")
   const [filters, setFilters] = useState<any>({})
 
-  if (status === "loading") {
-    return <div className="container mx-auto py-10">Loading...</div>
-  }
-
-  if (!session?.user?.id) {
-    redirect("/api/auth/signin")
-  }
-
-  const { receipts, isLoading } = useReceipts(session.user.id)
+  const { receipts, isLoading } = useReceipts(session?.user?.id)
 
   const filteredReceipts = useMemo(() => {
     if (!receipts) return []
@@ -89,6 +81,15 @@ export default function ReceiptsPage() {
 
     return filtered
   }, [receipts, search, filters])
+
+  if (status === "loading") {
+    return <div className="container mx-auto py-10">Loading...</div>
+  }
+
+  if (!session?.user?.id) {
+    redirect("/api/auth/signin")
+    return null // This will never execute, but satisfies TypeScript
+  }
 
   return (
     <div className="container mx-auto py-10">

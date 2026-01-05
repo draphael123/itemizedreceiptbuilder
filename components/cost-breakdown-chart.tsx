@@ -17,11 +17,11 @@ export function CostBreakdownChart({ breakdown }: CostBreakdownChartProps) {
   ]
 
   const totals = {
-    pharmacy: breakdown.pharmacy.total,
-    lab: breakdown.lab.total,
-    clinical: breakdown.clinical.total,
-    operational: breakdown.operational.total,
-    core: breakdown.core.total,
+    pharmacy: breakdown.pharmacy.reduce((sum, item) => sum + item.total, 0),
+    lab: breakdown.lab.reduce((sum, item) => sum + item.total, 0),
+    clinical: breakdown.clinical.reduce((sum, item) => sum + item.total, 0),
+    operational: breakdown.operational.reduce((sum, item) => sum + item.total, 0),
+    core: breakdown.core.reduce((sum, item) => sum + item.total, 0),
   }
 
   const grandTotal = Object.values(totals).reduce((sum, val) => sum + val, 0)

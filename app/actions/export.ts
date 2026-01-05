@@ -32,11 +32,12 @@ export async function exportReceiptsToCSV(receiptIds: string[]) {
       "Provider NPI": receipt.providerNPI,
       "Diagnosis Code": receipt.diagnosisCode,
       "Procedure Code": receipt.procedureCode,
-      "Medications": typeof receipt.medications === "string" 
-        ? JSON.parse(receipt.medications).join(", ")
-        : Array.isArray(receipt.medications) 
-        ? receipt.medications.join(", ")
-        : String(receipt.medications),
+      "Medications": (() => {
+        const meds = typeof receipt.medications === 'string' 
+          ? JSON.parse(receipt.medications)
+          : receipt.medications;
+        return Array.isArray(meds) ? meds.join(", ") : String(meds);
+      })(),
       "PDF URL": receipt.pdfUrl || "",
     }))
 
@@ -80,11 +81,12 @@ export async function exportReceiptsToExcel(receiptIds: string[]) {
       "Provider NPI": receipt.providerNPI,
       "Diagnosis Code": receipt.diagnosisCode,
       "Procedure Code": receipt.procedureCode,
-      "Medications": typeof receipt.medications === "string" 
-        ? JSON.parse(receipt.medications).join(", ")
-        : Array.isArray(receipt.medications) 
-        ? receipt.medications.join(", ")
-        : String(receipt.medications),
+      "Medications": (() => {
+        const meds = typeof receipt.medications === 'string' 
+          ? JSON.parse(receipt.medications)
+          : receipt.medications;
+        return Array.isArray(meds) ? meds.join(", ") : String(meds);
+      })(),
       "PDF URL": receipt.pdfUrl || "",
     }))
 

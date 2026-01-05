@@ -25,7 +25,7 @@ export async function bulkGenerateReceipts(receiptsData: (ReceiptFormData & { br
         // Upload to Vercel Blob
         let pdfUrl: string
         if (process.env.BLOB_READ_WRITE_TOKEN) {
-          const blob = await put(`receipts/${Date.now()}-${data.patientName}.pdf`, pdfBuffer as Buffer, {
+          const blob = await put(`receipts/${Date.now()}-${data.patientName}.pdf`, pdfBuffer as any, {
             access: "public",
             contentType: "application/pdf",
           })

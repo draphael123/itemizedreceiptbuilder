@@ -45,7 +45,7 @@ export function AdvancedValidation({ form, existingReceipts = [] }: AdvancedVali
       }
 
       // Date validation
-      if (name === "coverageStartDate" && name === "coverageEndDate") {
+      if (name === "coverageStartDate" || name === "coverageEndDate") {
         const start = value.coverageStartDate ? new Date(value.coverageStartDate) : null
         const end = value.coverageEndDate ? new Date(value.coverageEndDate) : null
         if (start && end && start > end) {
@@ -55,9 +55,10 @@ export function AdvancedValidation({ form, existingReceipts = [] }: AdvancedVali
 
       // Duplicate detection
       if (name === "patientName" && value.patientName && existingReceipts.length > 0) {
+        const patientName = value.patientName
         const duplicates = existingReceipts.filter(
           (r) =>
-            r.patientName.toLowerCase() === value.patientName.toLowerCase() &&
+            r.patientName.toLowerCase() === patientName.toLowerCase() &&
             r.chargeDate &&
             new Date(r.chargeDate).toDateString() ===
               (value.chargeDate ? new Date(value.chargeDate).toDateString() : "")

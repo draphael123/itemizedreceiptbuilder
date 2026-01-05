@@ -195,11 +195,11 @@ export default async function Home() {
                     Create a New Receipt
                   </h3>
                   <p className="text-gray-700 dark:text-gray-300 mb-3">
-                    Click <strong>"Create New Receipt"</strong> to start the 5-step wizard. You'll be guided through each step to collect all necessary information.
+                    Click <strong>&quot;Create New Receipt&quot;</strong> to start the 5-step wizard. You&apos;ll be guided through each step to collect all necessary information.
                   </p>
                   <div className="bg-purple-50 dark:bg-gray-700 rounded-md p-3 text-sm">
                     <p className="font-semibold mb-1">💡 Tip:</p>
-                    <p>Make sure you have the patient's information, plan details, and provider information ready before starting.</p>
+                    <p>Make sure you have the patient&apos;s information, plan details, and provider information ready before starting.</p>
                   </div>
                 </div>
               </div>
@@ -219,7 +219,7 @@ export default async function Home() {
                     <li><strong>Step 1 - Patient Info:</strong> Enter patient name, date of birth, charge date, coverage dates, and state</li>
                     <li><strong>Step 2 - Plan & Medications:</strong> Select plan price ($299, $399, $699, etc.), plan weeks (4, 10, 12, 24, 48), and medications</li>
                     <li><strong>Step 3 - Provider Details:</strong> Enter provider name, NPI, diagnosis code (ICD-10), and procedure code (CPT)</li>
-                    <li><strong>Step 4 - Review & Adjust:</strong> Review the calculated breakdown. If totals don't match, add an adjustment with a reason</li>
+                    <li><strong>Step 4 - Review & Adjust:</strong> Review the calculated breakdown. If totals don&apos;t match, add an adjustment with a reason</li>
                     <li><strong>Step 5 - Generate:</strong> Create the PDF receipt and save it to the database</li>
                   </ul>
                 </div>
@@ -279,14 +279,14 @@ export default async function Home() {
                     Pricing rules are automatically imported from your Excel spreadsheet. You can also manage them manually:
                   </p>
                   <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
-                    <li>Go to <strong>"Manage Pricing Rules"</strong> to view all existing rules</li>
+                    <li>Go to <strong>&quot;Manage Pricing Rules&quot;</strong> to view all existing rules</li>
                     <li>Create new rules for different plan prices, weeks, and medications</li>
                     <li>Rules are organized by: Plan Price → Plan Weeks → Medication → Category</li>
                     <li>Each rule includes item name, description, unit price, and quantity</li>
                   </ul>
                   <div className="bg-orange-50 dark:bg-gray-700 rounded-md p-3 mt-3 text-sm">
                     <p className="font-semibold mb-1">💡 Note:</p>
-                    <p>If the breakdown doesn't load, make sure pricing rules exist for your selected plan price, weeks, and medication combination.</p>
+                    <p>If the breakdown doesn&apos;t load, make sure pricing rules exist for your selected plan price, weeks, and medication combination.</p>
                   </div>
                 </div>
               </div>
@@ -328,7 +328,7 @@ export default async function Home() {
                   </p>
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-900 dark:text-white mb-1">What if totals don't match?</p>
+                  <p className="font-semibold text-gray-900 dark:text-white mb-1">What if totals don&apos;t match?</p>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
                     The system will automatically suggest an adjustment. Enter the adjustment amount and provide a reason (required) to balance the totals.
                   </p>
@@ -342,7 +342,7 @@ export default async function Home() {
                 <div>
                   <p className="font-semibold text-gray-900 dark:text-white mb-1">Can I edit a receipt after generating it?</p>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Currently, receipts cannot be edited after generation. You'll need to create a new receipt with corrected information.
+                    Currently, receipts cannot be edited after generation. You&apos;ll need to create a new receipt with corrected information.
                   </p>
                 </div>
               </div>
