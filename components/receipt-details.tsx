@@ -38,25 +38,35 @@ export function ReceiptDetails({ receipt }: ReceiptDetailsProps) {
           </div>
         </div>
 
-        <div>
-          <h3 className="font-semibold mb-2">Provider Information</h3>
-          <div className="space-y-1 text-sm">
-            <p>
-              <span className="text-muted-foreground">Name:</span> {receipt.providerName}
-            </p>
-            <p>
-              <span className="text-muted-foreground">NPI:</span> {receipt.providerNPI}
-            </p>
-            <p>
-              <span className="text-muted-foreground">Diagnosis Code:</span>{" "}
-              {receipt.diagnosisCode}
-            </p>
-            <p>
-              <span className="text-muted-foreground">Procedure Code:</span>{" "}
-              {receipt.procedureCode}
-            </p>
+        {(receipt.providerName || receipt.providerNPI || receipt.diagnosisCode || receipt.procedureCode) && (
+          <div>
+            <h3 className="font-semibold mb-2">Provider Information</h3>
+            <div className="space-y-1 text-sm">
+              {receipt.providerName && (
+                <p>
+                  <span className="text-muted-foreground">Name:</span> {receipt.providerName}
+                </p>
+              )}
+              {receipt.providerNPI && (
+                <p>
+                  <span className="text-muted-foreground">NPI:</span> {receipt.providerNPI}
+                </p>
+              )}
+              {receipt.diagnosisCode && (
+                <p>
+                  <span className="text-muted-foreground">Diagnosis Code:</span>{" "}
+                  {receipt.diagnosisCode}
+                </p>
+              )}
+              {receipt.procedureCode && (
+                <p>
+                  <span className="text-muted-foreground">Procedure Code:</span>{" "}
+                  {receipt.procedureCode}
+                </p>
+              )}
+            </div>
           </div>
-        </div>
+        )}
 
         <div>
           <h3 className="font-semibold mb-2">Plan Information</h3>
