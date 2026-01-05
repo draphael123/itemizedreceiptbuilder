@@ -68,3 +68,61 @@ export async function createReceipt(data: ReceiptFormData & { breakdown: CostBre
   }
 }
 
+export async function updateReceipt(
+  receiptId: string,
+  data: {
+    patientName: string
+    patientDOB: Date
+    chargeDate: Date
+    coverageStartDate: Date
+    coverageEndDate: Date
+    patientState: string
+    planPrice: number
+    planWeeks: number
+    chargeAmount: number
+    providerName: string
+    providerNPI: string
+    diagnosisCode: string
+    procedureCode: string
+  }
+) {
+  try {
+    const session = await auth()
+    if (!session?.user?.id) {
+      return { success: false, error: "Unauthorized" }
+    }
+
+    const receipt = await prisma.receipt.findUnique({
+      where: { id: receiptId },
+    })
+
+    if (!receipt || receipt.createdById !== session.user.id) {
+      return { success: false, error: "Receipt not found or unauthorized" }
+    }
+
+    await prisma.receipt.update({
+      where: { id: receiptId },
+      data: {
+        patientName: data.patientName,
+        patientDOB: data.patientDOB,
+        chargeDate: data.chargeDate,
+        coverageStartDate: data.coverageStartDate,
+        coverageEndDate: data.coverageEndDate,
+        patientState: data.patientState,
+        planPrice: data.planPrice,
+        planWeeks: data.planWeeks,
+        chargeAmount: data.chargeAmount,
+        providerName: data.providerName,
+        providerNPI: data.providerNPI,
+        diagnosisCode: data.diagnosisCode,
+        procedureCode: data.procedureCode,
+      },
+    })
+
+    return { success: true }
+  } catch (error: any) {
+    console.error("Error updating receipt:", error)
+    return { success: false, error: error.message || "Failed to update receipt" }
+  }
+}
+

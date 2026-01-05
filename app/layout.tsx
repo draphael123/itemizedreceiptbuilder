@@ -4,6 +4,7 @@ import "./globals.css"
 import { Providers } from "./providers"
 import { Toaster } from "@/components/ui/toaster"
 import { Nav } from "@/components/nav"
+import { KeyboardShortcuts } from "@/components/keyboard-shortcuts"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
+          <KeyboardShortcuts />
           <Nav />
           {children}
           <Toaster />
