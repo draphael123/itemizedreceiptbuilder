@@ -9,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { useToast } from "@/components/ui/use-toast"
 import { createReceipt } from "@/app/actions/receipts"
 import { useRouter } from "next/navigation"
+import { useSession } from "next-auth/react"
 
 interface GenerateStepProps {
   form: UseFormReturn<ReceiptFormData>
@@ -19,6 +20,7 @@ export function GenerateStep({ form, breakdown }: GenerateStepProps) {
   const [isGenerating, setIsGenerating] = useState(false)
   const { toast } = useToast()
   const router = useRouter()
+  const { data: session, status } = useSession()
 
   const handleGenerate = async () => {
     if (!breakdown) {
@@ -27,6 +29,26 @@ export function GenerateStep({ form, breakdown }: GenerateStepProps) {
         description: "Breakdown is required",
         variant: "destructive",
       })
+      return
+    }
+
+    if (status === "loading") {
+      toast({
+        title: "Please wait",
+        description: "Checking authentication...",
+      })
+      return
+    }
+
+    if (!session?.user) {
+      toast({
+        title: "Authentication Required",
+        description: "Please sign in to create receipts. Redirecting to sign in...",
+        variant: "destructive",
+      })
+      setTimeout(() => {
+        router.push("/api/auth/signin")
+      }, 2000)
       return
     }
 

@@ -10,8 +10,13 @@ import { put } from "@vercel/blob"
 export async function createReceipt(data: ReceiptFormData & { breakdown: CostBreakdown }) {
   try {
     const session = await auth()
-    if (!session?.user?.id) {
-      return { success: false, error: "Unauthorized" }
+    
+    if (!session?.user) {
+      return { success: false, error: "Unauthorized - Please sign in to create receipts" }
+    }
+    
+    if (!session.user.id) {
+      return { success: false, error: "Unauthorized - User ID not found in session. Please try signing out and signing back in." }
     }
 
     // Generate PDF
