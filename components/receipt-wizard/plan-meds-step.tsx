@@ -11,9 +11,9 @@ interface PlanMedsStepProps {
 }
 
 const AVAILABLE_MEDICATIONS = [
-  { key: "medication-a", label: "Medication A" },
-  { key: "medication-b", label: "Medication B" },
-  { key: "medication-c", label: "Medication C" },
+  { key: "medication-a", label: "Semaglutide (Wegovy)" },
+  { key: "medication-b", label: "Tirzepatide (Mounjaro)" },
+  { key: "medication-c", label: "Liraglutide (Saxenda)" },
 ]
 
 export function PlanMedsStep({ form }: PlanMedsStepProps) {
