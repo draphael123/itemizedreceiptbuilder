@@ -71,7 +71,29 @@ BLOB_READ_WRITE_TOKEN="your-vercel-blob-token"
 3. Go to "Storage" → "Blob"
 4. Create a new blob store and copy the token
 
-## Installation
+## Installation (Automatic Setup)
+
+**Just run one command and you're done!**
+
+```bash
+npm run setup
+```
+
+This automatically:
+- ✅ Creates `.env` file with defaults
+- ✅ Configures SQLite database (no external services needed!)
+- ✅ Installs dependencies
+- ✅ Sets up database schema
+- ✅ Loads sample pricing rules
+
+Then start the app:
+```bash
+npm run dev
+```
+
+That's it! Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Manual Installation (if needed)
 
 1. Clone the repository:
 ```bash
@@ -82,10 +104,6 @@ cd receipt-builder
 2. Install dependencies:
 ```bash
 npm install
-# or
-yarn install
-# or
-pnpm install
 ```
 
 3. Set up the database:
@@ -94,7 +112,7 @@ pnpm install
 npm run db:generate
 
 # Run migrations
-npm run db:migrate
+npm run db:push
 
 # Seed the database with sample pricing rules
 npm run db:seed
@@ -104,8 +122,6 @@ npm run db:seed
 ```bash
 npm run dev
 ```
-
-5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## Database Setup
 
